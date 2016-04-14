@@ -106,12 +106,16 @@ endif;
 				echo '<h4 class="orange">'.$user_firstname.'\'s Favorite Video</h4>';
 				echo '<div class="embed-wrap"><iframe frameborder="0" width="100%" allowfullscreen="" src="' . $user_video . '"></iframe></div>';
 			};
-			echo '<h4 class="orange">'.$user_firstname.'\'s Latest Blog Posts</h4>';
 
 			//echo 'do post display shortcode for author with user_id='.$link_user;
 			$this_author = get_user_by( 'id', $link_user );
+			$user_post_count = count_user_posts( $this_author->id );
 			$author_display_name = $this_author->user_nicename;
-			echo do_shortcode( '[display-posts posts_per_page="2" wrapper="div" wrapper_class="inline-display-staff" image_size="thumbnail" include_excerpt="true" author="'.$author_display_name.'" columns="2"]' );
+			if ( $user_post_count > 0 ) {
+				echo '<h4 class="orange">' . $user_firstname . '\'s Latest Blog Posts</h4>';
+				echo do_shortcode( '[display-posts posts_per_page="2" wrapper="div" wrapper_class="inline-display-staff" image_size="thumbnail" include_excerpt="true" author="'.$author_display_name.'" columns="2"]' );
+			};
+
 		endif; ?>
 
 </div><!-- .entry-content -->
