@@ -1,0 +1,19 @@
+.embed-wrap {
+	height: auto;
+	max-width: 100%;
+	margin-bottom: 20px;
+	overflow: hidden;
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 30px;
+}
+
+.embed-wrap iframe,
+.embed-wrap object,
+.embed-wrap embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}

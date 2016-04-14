@@ -1,0 +1,153 @@
+<?php
+/**
+ * The header template
+ *
+ * @package WordPress
+ * @subpackage zfwp-base
+ * @since ZFWP Base 1.0
+ */
+$header_class = 'header-base';
+	if ( is_front_page() ) {
+		$header_class = 'header-base';
+	} elseif ( is_page('about') ) {
+		$header_class = 'header-base-about';
+	} elseif ( is_page('services') || is_child('services') ) {
+		$header_class = 'header-base-serv';
+	} elseif ( is_page('downtown') || is_child('downtown') ) {
+		$header_class = 'header-base-down';
+	} elseif ( is_post_type_archive('case-study') || is_singular('case-study') ) {
+		$header_class = 'header-base-serv';
+	} elseif ( is_category('blog') || in_category( array('blog','technology','buzz','news','downtown-stories') ) ) {
+		$header_class = 'header-base-blog';
+	} elseif ( is_404() ) {
+		$header_class = 'header-base-404';
+	}
+?><!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8) ]><!-->
+<html <?php language_attributes(); ?>>
+<!--<![endif]-->
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title><?php bloginfo('name'); ?> </title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans|Arvo|Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/foundation.min.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/slick/slick-theme.css"/>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr.js"></script>
+
+	<?php wp_head(); ?>
+
+	<script type="text/javascript">
+		jQuery(function($){
+			$('.search-link').click(function () {
+				$('.header-search').toggleClass('close');
+			});
+		})
+	</script>
+
+</head>
+
+<body <?php body_class(); ?>>
+
+	<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
+        <header id="masthead" class="site-header" role="banner">
+			<div class="row">
+				<div id="logo" class="small-12 hide-for-small-down columns">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-header-logo.png" alt="Company Logo" /></a>
+				</div>
+            </div>
+            <div class="row">
+				<div id="description" class="small-12 hide-for-small-down columns">
+					<h3><?php bloginfo( 'description' ); ?></h3>
+				</div>
+            </div>
+            
+            <div class="row">
+                <div class="show-for-medium-up medium-12 columns">
+                    <div class="row">
+                        <div class="small-4 small-offset-2 columns"><?php do_action( display_social_media_icons('header') );?></div>
+
+                    <form method="get" id="searchform" action="<?php echo home_url();?>">
+                        <div class="small-4 columns end">
+                            <div class="header-search-form">
+                                <div class="search-zoom search-btn"><input value="Search" type="submit"></div>
+                                <input id="s" name="s" type="text" class="search-box" />
+                            </div>
+                        </div>
+                    </form>
+
+                    </div>
+                </div>
+			</div>
+
+            <div class="row">
+                <div class="medium-12 hide-for-small-only">
+                    <?php
+                    wp_nav_menu( array(
+                        'theme_location'  => 'primary',
+                        'menu'            => 'main-menu',
+                        'container_class' => 'c-c',
+                        'container_id'    => 'c-id',
+                        'menu_class'      => 'ul-class main-menu',
+                        'menu_id'         => 'circle-nav',
+                        'fallback_cb'     => 'wp_page_menu',
+                        'link_before'     => '',
+                        'link_after'      => '',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'depth'           => 1,
+                        'walker'          => new custom_walker_nav_menu
+                    ) ); 
+                    ?>
+                </div>
+            </div>
+		</header>
+	</div>
+
+<?php if ( is_front_page() ) { ?>
+
+	<div class="<?php echo $header_class; ?> show-for-small-down">
+		<header id="masthead" class="site-header" role="banner">
+			<div id="mobile-nav" class="small-12 show-for-small-down" style="text-align:center;">
+				<?php include get_template_directory() . '/includes/mobile-nav.php'; ?>
+			</div>
+		</header>
+	</div>
+
+<?php } else { ?>
+
+	<div class="<?php echo $header_class; ?> show-for-small-down stick-left">
+		<div id="mobile-nav" class="small-12 show-for-small-down" style="text-align:center;">
+			<div class="brgr-ico"><i id="burger" class="fa fa-bars"></i></div>
+			<?php include get_template_directory() . '/includes/mobile-nav.php'; ?>
+		</div>
+	</div>
+
+<?php }  ?>
+
+    <div id="site-cta" class="contain-to-grid green-bg hide-for-small-down">
+        <div class="row">
+            <div class="small-12 columns">
+                <?php
+                if ( function_exists( 'ccf_output_form' ) ) {
+	                $form_id = get_id_by_slug('sign-up-for-our-newsletter', 'ccf_form');
+                    ccf_output_form( $form_id );
+                } else {
+                    echo 'contact form unavailable';
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+
+	<div id="site" class="row NOTlarge-collapse">
