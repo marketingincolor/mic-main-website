@@ -11,7 +11,7 @@
 
 	<div class="row collapse">
 		<div id="logo" class="small-12 columns">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-header-logo-mob.png" alt="Company Logo" /></a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/MIC Mobile Website Logo 004.png" alt="Company Logo" /></a>
 		</div>
 	</div>
 
