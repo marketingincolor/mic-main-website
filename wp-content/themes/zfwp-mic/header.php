@@ -46,6 +46,7 @@ $header_class = 'header-base';
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/slick/slick-theme.css"/>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/vendor/modernizr.js"></script>
 
+
 	<?php wp_head(); ?>
 
 	<script type="text/javascript">
@@ -60,6 +61,16 @@ $header_class = 'header-base';
 
 <body <?php body_class(); ?>>
 
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TLNW5X"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TLNW5X');</script>
+<!-- End Google Tag Manager -->
+
 	<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
         <header id="masthead" class="site-header" role="banner">
 			<div class="row">
@@ -72,7 +83,7 @@ $header_class = 'header-base';
 					<h3><?php bloginfo( 'description' ); ?></h3>
 				</div>
             </div>
-            
+
             <div class="row">
                 <div class="show-for-medium-up medium-12 columns">
                     <div class="row">
@@ -107,7 +118,7 @@ $header_class = 'header-base';
                         'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
                         'depth'           => 1,
                         'walker'          => new custom_walker_nav_menu
-                    ) ); 
+                    ) );
                     ?>
                 </div>
             </div>
@@ -135,6 +146,8 @@ $header_class = 'header-base';
 
 <?php }  ?>
 
+<?php if ( !is_page('ga-test') ) { ?>
+
     <div id="site-cta" class="contain-to-grid green-bg hide-for-small-down">
         <div class="row">
             <div class="small-12 columns">
@@ -149,5 +162,7 @@ $header_class = 'header-base';
             </div>
         </div>
     </div>
+
+<?php } ?>
 
 	<div id="site" class="row NOTlarge-collapse">

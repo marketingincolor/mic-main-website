@@ -8,15 +8,6 @@
  */
 ?>
 <div class="gtm-box">
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-TLNW5X"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TLNW5X');</script>
-<!-- End Google Tag Manager -->
 
 <!-- Google Code for Remarketing Tag -->
 <!-- Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup -->
@@ -35,6 +26,10 @@ var google_remarketing_only = true;
 </div>
 </noscript>
 </div>
+<!--VimeoScript-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://www.marketingincolor.com/vimeo.ga.js" type="text/javascript"></script>
+<!--/VimeoScript-->
 </body>
 <!--end Google Code-->
 
@@ -75,13 +70,13 @@ var google_remarketing_only = true;
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ad.png">
                                 <a href="https://www.google.com/maps/place/1515+N+Marion+St,+Tampa,+FL+33602/@27.9581507,-82.4597758,18z/data=!4m7!1m4!3m3!1s0x88c2c46153ac8083:0x3e70fe559f047bce!2s1515+N+Marion+St,+Tampa,+FL+33602!3b1!3m1!1s0x88c2c4615329056f:0xc4b3eef492826fc9!6m1!1e1" target="_new"><?php do_action( 'co_address' ); ?></a>
 							</div>
-							
+
 							<div class="widget-details">
 								<a href="http://marketingincolor.com/sharpspring-login/">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/SharpSpring Footer Icon.png">
 								<?php do_action( 'co_sharpspring' ); ?></a>
 							</div>
-							
+
 						</div>
 					</div><!-- .widget-area -->
 					<?php endif; ?>
