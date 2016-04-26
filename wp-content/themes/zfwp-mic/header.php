@@ -56,7 +56,20 @@ $header_class = 'header-base';
 			});
 		})
 	</script>
-
+	<script type='text/javascript' src='http://smartzonessva.com/tag?171'></script>
+	<script type="text/javascript">
+		var _ss = _ss || [];
+		_ss.push(['_setDomain', 'https://koi-UUHGVW.sharpspring.com/net']);
+		_ss.push(['_setAccount', 'KOI-YU6QP0']);
+		_ss.push(['_trackPageView']);
+		(function() {
+			var ss = document.createElement('script');
+			ss.type = 'text/javascript'; ss.async = true;
+			ss.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'koi-UUHGVW.sharpspring.com/client/ss.js?ver=1.1.1';
+			var scr = document.getElementsByTagName('script')[0];
+			scr.parentNode.insertBefore(ss, scr);
+		})();
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -146,8 +159,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <?php }  ?>
 
-<?php if ( !is_page('ga-test') ) { ?>
-
     <div id="site-cta" class="contain-to-grid green-bg hide-for-small-down">
         <div class="row">
             <div class="small-12 columns">
@@ -159,10 +170,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     echo 'contact form unavailable';
                 }
                 ?>
+	            <script type="text/javascript">
+		            var __ss_noform = __ss_noform || [];
+		            __ss_noform.push(['baseURI', 'https://app-UUHGVW.marketingautomation.services/webforms/receivePostback/MzQ1sAAA/']);
+		            __ss_noform.push(['endpoint', '0c57b7a3-a1c0-4e79-a1a9-76dd0d2afc72']);
+	            </script>
+	            <script type="text/javascript" src="https://koi-UUHGVW.marketingautomation.services/client/noform.js?ver=1.24" ></script>
+
             </div>
         </div>
     </div>
-
-<?php } ?>
 
 	<div id="site" class="row NOTlarge-collapse">
