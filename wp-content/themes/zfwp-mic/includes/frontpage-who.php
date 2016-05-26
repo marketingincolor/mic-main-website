@@ -15,17 +15,14 @@
             <div class="acc-content bgnd-purple">
 	            <div class="acc-content-shadow"></div>
 
-
                 <?php echo do_shortcode('[display-posts category="blog" include_excerpt="true" posts_per_page="3" image_size="thumbnail"]') ?>
-
-
 
                 <ul class="display-posts-listing" style="display:none;">
                     <li class="listing-item one-half first">
-                        <?php echo do_shortcode('[display-posts category="blog" include_excerpt="true" posts_per_page="1" image_size="story-thumb"]') ?>
+                        <?php //echo do_shortcode('[display-posts category="blog" include_excerpt="true" posts_per_page="1" image_size="story-thumb"]') ?>
                     </li>
                     <li class="listing-item one-half">
-                        <?php echo do_shortcode('[display-posts category="blog" offset="1" include_excerpt="true" posts_per_page="2" image_size="thumbnail"]') ?>
+                        <?php //echo do_shortcode('[display-posts category="blog" offset="1" include_excerpt="true" posts_per_page="2" image_size="thumbnail"]') ?>
                     </li>
                 </ul>
             </div>
@@ -89,10 +86,10 @@
 
                 <ul class="display-posts-listing" style="display:none; ">
                     <li class="listing-item one-half first">
-                        <?php echo do_shortcode('[display-posts category="downtown-stories" include_excerpt="true" posts_per_page="1" image_size="story-thumb"]') ?>
+                        <?php //echo do_shortcode('[display-posts category="downtown-stories" include_excerpt="true" posts_per_page="1" image_size="story-thumb"]') ?>
                     </li>
                     <li class="listing-item one-half">
-                        <?php echo do_shortcode('[display-posts category="downtown-stories" offset="1" include_excerpt="true" posts_per_page="2" image_size="thumbnail"]') ?>
+                        <?php //echo do_shortcode('[display-posts category="downtown-stories" offset="1" include_excerpt="true" posts_per_page="2" image_size="thumbnail"]') ?>
                     </li>
                 </ul>
             </div>
@@ -116,4 +113,3 @@
 -->
 
 <br clear="both" />
-

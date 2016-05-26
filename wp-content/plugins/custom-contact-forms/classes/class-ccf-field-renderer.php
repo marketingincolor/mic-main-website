@@ -51,8 +51,7 @@ class CCF_Field_Renderer {
 				<?php if ( ! empty( $required ) ) : ?><span class="required">*</span><?php endif; ?>
 				<?php echo esc_html( $label ); ?>
 			</label>
-			<input class="form-control <?php if ( ! empty( $errors ) ) : ?>field-error-input<?php endif; ?> field-input" <?php if ( ! empty( $required ) ) : ?>required aria-required="true"<?php endif; ?> type="text" name="ccf_field_<?php echo esc_attr( $slug ); ?>" id="ccf_field_<?php echo esc_attr( $slug ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php if ( ! empty( $post_value ) ) { echo esc_attr( $post_value );
-} else { echo esc_attr( $value ); } ?>">
+			<input class="form-control <?php if ( ! empty( $errors ) ) : ?>field-error-input<?php endif; ?> field-input" <?php if ( ! empty( $required ) ) : ?>required aria-required="true"<?php endif; ?> type="text" name="ccf_field_<?php echo esc_attr( $slug ); ?>" id="ccf_field_<?php echo esc_attr( $slug ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php if ( ! empty( $post_value ) ) { echo esc_attr( $post_value ); } else { echo esc_attr( $value ); } ?>">
 
 			<?php if ( ! empty( $description ) ) : ?>
 				<div class="field-description help-block text-muted">
@@ -185,6 +184,56 @@ class CCF_Field_Renderer {
 	}
 
 	/**
+	 * Get somple CAPTCHA field HTML, including any errors from the last form submission.
+	 *
+	 * @param int $field_id
+	 * @param int $form_id
+	 * @since 6..2
+	 * @return string
+	 */
+	public function simple_captcha( $field_id, $form_id ) {
+		$slug = get_post_meta( $field_id, 'ccf_field_slug', true );
+		$label = get_post_meta( $field_id, 'ccf_field_label', true );
+		$class_name = get_post_meta( $field_id, 'ccf_field_className', true );
+		$placeholder = get_post_meta( $field_id, 'ccf_field_placeholder', true );
+		$description = get_post_meta( $field_id, 'ccf_field_description', true );
+
+		$errors = CCF_Form_Handler::factory()->get_errors( $form_id, $slug );
+
+		require_once( dirname( __FILE__ ) . '/../vendor/abeautifulsite/simple-php-captcha/simple-php-captcha.php' );
+
+		$_SESSION['ccf_simple_captcha_' . $slug] = simple_php_captcha();
+
+		ob_start();
+		?>
+
+		<div data-field-type="simple-captcha" data-field-slug="<?php echo esc_attr( $slug ); ?>" class="form-group <?php if ( ! empty( $errors ) ) : ?>field-error has-error<?php endif; ?> field <?php echo esc_attr( $slug ); ?> field-type-simple-captcha field-<?php echo (int) $field_id; ?> <?php echo esc_attr( $class_name ); ?> <?php if ( ! empty( $required ) ) : ?>field-required<?php endif; ?>">
+			<label class="main-label" for="ccf_field_<?php echo esc_attr( $slug ); ?>">
+				<span class="required">*</span>
+				<?php echo esc_html( $label ); ?>
+			</label>
+			<div class="ccf-simple-captcha-wrapper">
+				<img src="<?php echo esc_url( $_SESSION['ccf_simple_captcha_' . $slug]['image_src'] ); ?>">
+			</div>
+
+			<input class="form-control <?php if ( ! empty( $errors ) ) : ?>field-error-input<?php endif; ?> field-input" required aria-required="true" type="text" name="ccf_field_<?php echo esc_attr( $slug ); ?>" id="ccf_field_<?php echo esc_attr( $slug ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>">
+
+			<?php if ( ! empty( $description ) ) : ?>
+				<div class="field-description help-block text-muted">
+					<?php echo esc_html( $description ); ?>
+				</div>
+			<?php endif; ?>
+
+			<?php if ( ! empty( $errors ) ) : ?>
+				<div class="error"><?php echo esc_html( $errors['simple_captcha'] ); ?></div>
+			<?php endif; ?>
+		</div>
+
+		<?php
+		return ob_get_clean();
+	}
+
+	/**
 	 * Get section header layout field HTML
 	 *
 	 * @param int $field_id
@@ -296,6 +345,8 @@ class CCF_Field_Renderer {
 		$required = get_post_meta( $field_id, 'ccf_field_required', true );
 		$description = get_post_meta( $field_id, 'ccf_field_description', true );
 
+		$use_values = get_post_meta( $field_id, 'ccf_field_useValues', true );
+
 		$errors = CCF_Form_Handler::factory()->get_errors( $form_id, $slug );
 		$all_errors = CCF_Form_Handler::factory()->get_errors( $form_id );
 
@@ -327,8 +378,15 @@ class CCF_Field_Renderer {
 							$selected = 'selected';
 						}
 					}
+
+					$value = $choice['value'];
+
+					if ( empty( $use_values ) ) {
+						$value = $choice['label'];
+					}
+
 					?>
-					<option <?php echo $selected; ?> value="<?php echo esc_attr( $choice['value'] ); ?>"><?php echo esc_html( $choice['label'] ); ?></option>
+					<option <?php echo $selected; ?> value="<?php echo esc_attr( $value ); ?>"><?php echo esc_html( $choice['label'] ); ?></option>
 				<?php endforeach; ?>
 			</select>
 
@@ -527,6 +585,7 @@ class CCF_Field_Renderer {
 		$required = get_post_meta( $field_id, 'ccf_field_required', true );
 		$class_name = get_post_meta( $field_id, 'ccf_field_className', true );
 		$description = get_post_meta( $field_id, 'ccf_field_description', true );
+		$default_country = get_post_meta( $field_id, 'ccf_field_defaultCountry', true );
 
 		$errors = CCF_Form_Handler::factory()->get_errors( $form_id, $slug );
 		$all_errors = CCF_Form_Handler::factory()->get_errors( $form_id );
@@ -628,7 +687,7 @@ class CCF_Field_Renderer {
 				<div class="right">
 					<select class="<?php if ( ! empty( $errors['country_required'] ) ) : ?>field-error-input<?php endif; ?> field-input" <?php if ( ! empty( $required ) ) : ?>required aria-required="true"<?php endif; ?> name="ccf_field_<?php echo esc_attr( $slug ); ?>[country]" id="ccf_field_<?php echo esc_attr( $slug ); ?>-country">
 						<?php foreach ( CCF_Constants::factory()->get_countries() as $country ) : ?>
-							<option <?php if ( ! empty( $country_post_value ) ) { selected( $country_post_value, $country ); } ?>><?php echo $country; ?></option>
+							<option <?php if ( $country === $default_country ) : ?>selected<?php endif; ?> <?php if ( ! empty( $country_post_value ) ) { selected( $country_post_value, $country ); } ?>><?php echo $country; ?></option>
 						<?php endforeach; ?>
 					</select>
 					<?php if ( ! empty( $errors['country_required'] ) ) : ?>
@@ -1141,6 +1200,9 @@ endif; ?>
 			case 'recaptcha':
 				$field_html = $this->recaptcha( $field_id, $form_id );
 				break;
+			case 'simple-captcha':
+				$field_html = $this->simple_captcha( $field_id, $form_id );
+				break;
 			case 'html':
 				$field_html = $this->html( $field_id, $form_id );
 				break;
@@ -1172,6 +1234,14 @@ endif; ?>
 
 		return $field_html;
 	}
+	
+	/**
+	 * Resets the instance defaults
+	 */
+	public function reset() {
+		$this->section_open = false;
+	}
+	
 	/**
 	 * Return singleton instance of class
 	 *

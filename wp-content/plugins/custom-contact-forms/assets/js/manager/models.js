@@ -127,7 +127,8 @@
 				return {
 					title: '',
 					content: '[all_fields]',
-					active: false,
+					active: true,
+					includeUploads: true,
 					addresses: new wp.ccf.collections.FormNotificationAddresses(),
 					fromType: 'default',
 					fromAddress: '',
@@ -137,7 +138,16 @@
 					subjectField: '',
 					fromNameType: 'custom',
 					fromName: 'WordPress',
-					fromNameField: ''
+					fromNameField: '',
+
+					replyToType: 'default',
+					replyToAddress: '',
+					replyToField: '',
+
+
+					replyToNameType: 'custom',
+					replyToName: 'WordPress',
+					replyToNameField: ''
 				};
 			},
 
@@ -194,8 +204,10 @@
 					fields: new wp.ccf.collections.Fields(),
 					type: 'ccf_form',
 					status: 'publish',
+					hideTitle: false,
 					description: '',
 					buttonText: 'Submit Form',
+					buttonClass: '',
 					completionActionType: 'text',
 					completionRedirectUrl: '',
 					completionMessage: '',
@@ -205,6 +217,7 @@
 					postFieldMappings: new wp.ccf.collections.PostFieldMappings(),
 					notifications: new wp.ccf.collections.FormNotifications(),
 					pause: false,
+					requireLoggedIn: false,
 					pauseMessage: ccfSettings.pauseMessage,
 					theme: 'none'
 				};
@@ -696,6 +709,25 @@
 		}
 	);
 
+	wp.ccf.models.Fields['simple-captcha'] = wp.ccf.models.Fields['simple-captcha'] || wp.ccf.models.StandardField.extend(
+		{
+			defaults: function() {
+				var defaults = {
+					type: 'simple-captcha',
+					placeholder: ccfSettings.defaultSimpleCaptchaPlaceholder
+				};
+
+				return _.defaults( defaults, this.constructor.__super__.defaults() );
+			},
+
+			isImmutable: true,
+
+			initialize: function() {
+				return this.constructor.__super__.initialize.apply( this, arguments );
+			}
+		}
+	);
+
 	wp.ccf.models.Fields.address = wp.ccf.models.Fields.address || wp.ccf.models.StandardField.extend(
 		{
 			defaults: function() {
@@ -768,7 +800,8 @@
 		{
 			defaults: function() {
 				var defaults = {
-					choices: new wp.ccf.collections.FieldChoices()
+					choices: new wp.ccf.collections.FieldChoices(),
+					useValues: false
 				};
 
 				return _.defaults( defaults, this.constructor.__super__.defaults() );

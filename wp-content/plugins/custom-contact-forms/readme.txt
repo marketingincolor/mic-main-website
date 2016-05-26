@@ -3,7 +3,7 @@ Contributors: tlovett1
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=HR34W94MM53RQ
 Tags: contact form, web form, custom contact form, custom forms, captcha form, contact fields, form mailers, forms
 Requires at least: 3.9
-Tested up to: 4.5
+Tested up to: 4.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -26,6 +26,9 @@ Custom Contact Forms enables you to build forms and manage submissions the WordP
 * Pre-setup for Twitter Bootstrap
 * Multiple themes to choose from
 * No custom database tables
+* Easy form duplication
+* Multiple types of CAPTCHAs for spam blocking
+* Only show forms to logged in users
 * Forms can show customizable completion text or redirect to a URL.
 * Temporarily pause forms with a customizable pause message.
 * Create and manage multiple notifications for each form. Notifications can send emails to one or more administrators or form submittors. Customize notification email subject, from email address, from email name, and email body. Map form fields to email subject, from name, and from email address. Easily activate and deactivate notifications.
@@ -56,6 +59,34 @@ Please refer to [Github](http://github.com/tlovett1/custom-contact-forms) for de
 For full documentation, questions, feature requests, and support concerning the Custom Contact Forms plugin, please refer to [Github](http://github.com/tlovett1/custom-contact-forms).
 
 == Changelog ==
+
+= 7.8.2 = 
+* Add $submission to ccf_email_subject filter, correct "Invalid Date" issue with datepicker. Props (quayzar)[https://github.com/quayzar]
+* Fix WooCommerce conflict
+* Add support for Customize Posts plugin. Props (westonruter)[https://github.com/westonruter]
+
+= 7.8.1 =
+* Cache busy form submission URL
+* Improve field choice UI
+
+= 7.8 =
+* Hide form title setting
+* Reply to notification fields
+* Activate form notifications by default
+
+= 7.7 =
+* New CAPTCHA option
+* Fix "0" choice input bug
+* Fix empty conditional bug
+* Reset field renderer bug fixed
+* Guide user for whitelisting file extenions in file field
+* Submit class form option
+* Logged in users only form option
+
+= 7.6 =
+* Form duplication
+* Fix multiple section header bug
+* Button class field
 
 = 7.5 =
 * Conditional fields and sections

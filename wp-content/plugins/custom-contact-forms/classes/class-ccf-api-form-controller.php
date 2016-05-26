@@ -65,6 +65,18 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 				'sanitize' => 'esc_attr',
 				'escape' => 'esc_attr',
 			),
+			'defaultCountry' => array(
+				'sanitize' => 'esc_attr',
+				'escape' => 'esc_attr',
+			),
+			'defaultState' => array(
+				'sanitize' => 'esc_attr',
+				'escape' => 'esc_attr',
+			),
+			'defaultCountry' => array(
+				'sanitize' => 'esc_attr',
+				'escape' => 'esc_attr',
+			),
 			'siteKey' => array(
 				'sanitize' => 'esc_attr',
 				'escape' => 'esc_attr',
@@ -78,6 +90,10 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 				'escape' => 'esc_attr',
 			),
 			'emailConfirmation' => array(
+				'sanitize' => array( $this, 'boolval' ),
+				'escape' => array( $this, 'boolval' ),
+			),
+			'useValues' => array(
 				'sanitize' => array( $this, 'boolval' ),
 				'escape' => array( $this, 'boolval' ),
 			),
@@ -243,7 +259,7 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 		$new_choices = array();
 
 		foreach ( $choices as $choice ) {
-			if ( ! empty( $choice['label'] ) ) {
+			if ( ! empty( $choice['label'] ) || $choice['label'] === '0' ) {
 				if ( empty( $choice['ID'] ) ) {
 					$args = array(
 						'post_title' => $choice['label'] . '-' . (int) $field_id,
@@ -385,8 +401,10 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 		$clean_conditionals = array();
 
 		for ( $index = 0; $index < count( $conditionals ); $index++ ) {
-			foreach ( $conditionals[ $index ] as $conditional_key => $conditional_value ) {
-				$clean_conditionals[ $index ][ $conditional_key ] = sanitize_text_field( $conditional_value );
+			if ( ! empty( $conditionals[ $index ]['field'] ) && ! empty( $conditionals[ $index ]['compare'] ) ) {
+				foreach ( $conditionals[ $index ] as $conditional_key => $conditional_value ) {
+					$clean_conditionals[ $index ][ $conditional_key ] = sanitize_text_field( $conditional_value );
+				}
 			}
 		}
 
@@ -448,6 +466,10 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 				update_post_meta( $result, 'ccf_form_buttonText', sanitize_text_field( $data['buttonText'] ) );
 			}
 
+			if ( isset( $data['buttonClass'] ) ) {
+				update_post_meta( $result, 'ccf_form_buttonClass', sanitize_text_field( $data['buttonClass'] ) );
+			}
+
 			if ( isset( $data['description'] ) ) {
 				update_post_meta( $result, 'ccf_form_description', sanitize_text_field( $data['description'] ) );
 			}
@@ -470,6 +492,14 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 
 			if ( isset( $data['pause'] ) ) {
 				update_post_meta( $result, 'ccf_form_pause', (bool) $data['pause'] );
+			}
+
+			if ( isset( $data['hideTitle'] ) ) {
+				update_post_meta( $result, 'ccf_form_hide_title', (bool) $data['hideTitle'] );
+			}
+
+			if ( isset( $data['requireLoggedIn'] ) ) {
+				update_post_meta( $result, 'ccf_form_require_logged_in', (bool) $data['requireLoggedIn'] );
 			}
 
 			if ( isset( $data['theme'] ) ) {
@@ -595,6 +625,7 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 		$data['data'] = get_post_meta( $item->ID, 'ccf_submission_data', true );
 		$data['fields'] = get_post_meta( $item->ID, 'ccf_submission_form_fields', true );
 		$data['ip_address'] = esc_html( get_post_meta( $item->ID, 'ccf_submission_ip', true ) );
+		$data['form_page_url'] = esc_url_raw( get_post_meta( $item->ID, 'ccf_submission_form_page', true ) );
 
 		return $data;
 	}
@@ -999,11 +1030,14 @@ class CCF_API_Form_Controller extends WP_REST_Controller {
 		$data['fields'] = $this->_get_fields( $data['id'] );
 
 		$data['buttonText'] = esc_attr( get_post_meta( $data['id'], 'ccf_form_buttonText', true ) );
+		$data['buttonClass'] = esc_attr( get_post_meta( $data['id'], 'ccf_form_buttonClass', true ) );
 		$data['description'] = esc_html( get_post_meta( $data['id'], 'ccf_form_description', true ) );
 		$data['completionActionType'] = esc_attr( get_post_meta( $data['id'], 'ccf_form_completion_action_type', true ) );
 		$data['completionRedirectUrl'] = esc_url_raw( get_post_meta( $data['id'], 'ccf_form_completion_redirect_url', true ) );
 		$data['completionMessage'] = esc_html( get_post_meta( $data['id'], 'ccf_form_completion_message', true ) );
 		$data['pause'] = (bool) get_post_meta( $data['id'], 'ccf_form_pause', true );
+		$data['hideTitle'] = (bool) get_post_meta( $data['id'], 'ccf_form_hide_title', true );
+		$data['requireLoggedIn'] = (bool) get_post_meta( $data['id'], 'ccf_form_require_logged_in', true );
 		$data['postCreation'] = (bool) get_post_meta( $data['id'], 'ccf_form_post_creation', true );
 		$data['postCreationType'] = esc_html( get_post_meta( $data['id'], 'ccf_form_post_creation_type', true ) );
 		$data['postCreationStatus'] = esc_html( get_post_meta( $data['id'], 'ccf_form_post_creation_status', true ) );

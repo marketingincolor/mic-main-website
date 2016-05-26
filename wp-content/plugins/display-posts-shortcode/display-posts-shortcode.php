@@ -3,7 +3,7 @@
  * Plugin Name: Display Posts Shortcode
  * Plugin URI: http://www.billerickson.net/shortcode-to-display-posts/
  * Description: Display a listing of posts using the [display-posts] shortcode
- * Version: 2.5.1
+ * Version: 2.6.1
  * Author: Bill Erickson
  * Author URI: http://www.billerickson.net
  *
@@ -66,6 +66,8 @@ function be_display_posts_shortcode( $atts ) {
 		'date_query_column'   => '',
 		'date_query_compare'  => '',
 		'display_posts_off'   => false,
+		'excerpt_length'      => false,
+		'excerpt_more'        => false,
 		'exclude_current'     => false,
 		'id'                  => false,
 		'ignore_sticky_posts' => false,
@@ -112,6 +114,8 @@ function be_display_posts_shortcode( $atts ) {
 	$date_query_after    = sanitize_text_field( $atts['date_query_after'] );
 	$date_query_column   = sanitize_text_field( $atts['date_query_column'] );
 	$date_query_compare  = sanitize_text_field( $atts['date_query_compare'] );
+	$excerpt_length      = intval( $atts['excerpt_length'] );
+	$excerpt_more        = sanitize_text_field( $atts['excerpt_more'] );
 	$exclude_current     = filter_var( $atts['exclude_current'], FILTER_VALIDATE_BOOLEAN );
 	$id                  = $atts['id']; // Sanitized later as an array of integers
 	$ignore_sticky_posts = filter_var( $atts['ignore_sticky_posts'], FILTER_VALIDATE_BOOLEAN );
@@ -137,10 +141,10 @@ function be_display_posts_shortcode( $atts ) {
 	$taxonomy            = sanitize_key( $atts['taxonomy'] );
 	$time                = sanitize_text_field( $atts['time'] );
 	$wrapper             = sanitize_text_field( $atts['wrapper'] );
-	$wrapper_class       = sanitize_html_class( $atts['wrapper_class'] );
+	$wrapper_class       = array_map( 'sanitize_html_class', ( explode( ' ', $atts['wrapper_class'] ) ) );
 
 	if( !empty( $wrapper_class ) )
-		$wrapper_class = ' class="' . $wrapper_class . '"';
+		$wrapper_class = ' class="' . implode( ' ', $wrapper_class ) . '"';
 	$wrapper_id = sanitize_html_class( $atts['wrapper_id'] );
 	if( !empty( $wrapper_id ) )
 		$wrapper_id = ' id="' . $wrapper_id . '"';
@@ -258,8 +262,14 @@ function be_display_posts_shortcode( $atts ) {
 		$args['post__not_in'] = array( get_the_ID() );
 	
 	// Post Author
-	if( !empty( $author ) )
-		$args['author_name'] = $author;
+	if( !empty( $author ) ) {
+		if( 'current' == $author && is_user_logged_in() )
+			$args['author_name'] = wp_get_current_user()->user_login;
+		elseif( 'current' == $author )
+			$args['meta_key'] = 'dps_no_results';	
+		else
+			$args['author_name'] = $author;
+	}
 		
 	// Offset
 	if( !empty( $offset ) )
@@ -404,8 +414,11 @@ function be_display_posts_shortcode( $atts ) {
 			 */
 			$author = apply_filters( 'display_posts_shortcode_author', ' <span class="author">by ' . get_the_author() . '</span>' );
 		
-		if ( $include_excerpt ) 
-			$excerpt = ' <span class="excerpt-dash">-</span> <span class="excerpt">' . get_the_excerpt() . '</span>';
+		if ( $include_excerpt ) {
+			$excerpt_length = $excerpt_length ? $excerpt_length : apply_filters( 'excerpt_length', 55 );
+			$excerpt_more = $excerpt_more ? $excerpt_more : apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
+			$excerpt = ' <span class="excerpt-dash">-</span> <span class="excerpt">' . wp_trim_words( get_the_excerpt(), $excerpt_length, $excerpt_more ) . '</span>';
+		}
 			
 		if( $include_content ) {
 			add_filter( 'shortcode_atts_display-posts', 'be_display_posts_off', 10, 3 );

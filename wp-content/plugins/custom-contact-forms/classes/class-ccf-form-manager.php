@@ -16,7 +16,9 @@ class CCF_Form_Manager {
 	public function setup() {
 		add_action( 'media_buttons', array( $this, 'action_media_buttons' ) );
 		add_action( 'admin_footer', array( $this, 'print_templates' ) );
-		add_action( 'admin_enqueue_scripts' , array( $this, 'action_admin_enqueue_scripts_css' ), 9 );
+		add_action( 'customize_controls_print_footer_scripts', array( $this, 'customize_controls_print_footer_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue_scripts_css' ), 9 );
+		add_action( 'customize_controls_enqueue_scripts' , array( $this, 'action_admin_enqueue_scripts_css' ), 9 );
 		add_filter( 'mce_css', array( $this, 'filter_mce_css' ) );
 	}
 
@@ -40,6 +42,16 @@ class CCF_Form_Manager {
 
 		$css .= ', ' . plugins_url( $css_path, dirname( __FILE__ ) );
 		return $css;
+	}
+
+	/**
+	 * Print all Backbone templates for form manager in Customizer
+	 */
+	public function customize_controls_print_footer_scripts() {
+		global $wp_customize;
+		if ( isset( $wp_customize->posts ) ) {
+			$this->print_templates();
+		}
 	}
 
 	/**
@@ -223,7 +235,7 @@ class CCF_Form_Manager {
 						<label for="ccf_form_email_notification_content"><?php esc_html_e( 'Email Content (HTML):', 'custom-contact-forms' ); ?></label>
 						<textarea id="ccf_form_email_notification_content" class="form-email-notification-content">{{ notification.content }}</textarea><br />
 						<p class="variables">
-							<strong><?php esc_html_e( 'Variables:', 'custom-contact-forms' ); ?></strong>  [all_fields] [ip_address] [current_date_time] 
+							<strong><?php esc_html_e( 'Variables:', 'custom-contact-forms' ); ?></strong>  [all_fields] [ip_address] [current_date_time] [form_page_url]
 							<span class="field-variables"></span>
 
 						</p>
@@ -241,12 +253,87 @@ class CCF_Form_Manager {
 							<label for="ccf_form_email_notification_active"><strong><?php esc_html_e( 'Activate Notification:', 'custom-contact-forms' ); ?></strong></label>
 
 							<select name="email_notification_active" class="form-email-notification-active" id="ccf_form_email_notification_active">
-								<option value="0"><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
-								<option value="1" <# if ( notification.active ) { #>selected<# } #>><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
+								<option value="1"><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
+								<option value="0" <# if ( ! notification.active ) { #>selected<# } #>><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
 							</select>
 
 							<span class="explain"><?php esc_html_e( 'Only active notifications will be sent.', 'custom-contact-forms' ); ?></span>
 						</p>
+
+			
+
+
+
+						<p class="email-notification-setting">
+							<label for="ccf_form_email_notification_reply_to_type"><?php esc_html_e( '"Reply To" Address Type:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_reply_to_type" class="form-email-notification-reply-to-type" id="ccf_form_email_notification_reply_to_type">
+								<option value="default"><?php esc_html_e( 'Default', 'custom-contact-forms' ); ?></option>
+								<option value="custom" <# if ( 'custom' === notification.replyToType ) { #>selected<# } #>><?php esc_html_e( 'Custom Email', 'custom-contact-forms' ); ?></option>
+								<option value="field" <# if ( 'field' === notification.replyToType ) { #>selected<# } #>><?php esc_html_e( 'Form Field', 'custom-contact-forms' ); ?></option>
+							</select>
+
+							<span class="explain"><?php esc_html_e( 'You can set the notification emails "reply to" address to be the WP default, a custom email address, or pull the address from a field in the form.', 'custom-contact-forms' ); ?></span>
+						</p>
+
+						<p class="email-notification-reply-to-address">
+							<label for="ccf_form_email_notification_reply_to_address"><?php esc_html_e( 'Custom "Reply To" Email Address:', 'custom-contact-forms' ); ?></label>
+							<input class="widefat form-email-notification-reply-to-address" id="ccf_form_email_notification_reply_to_address" name="email-notification-reply-to-address" value="{{ notification.replyToAddress }}">
+						</p>
+
+						<p class="email-notification-reply-to-field">
+							<label for="ccf_form_email_notification_reply_to_field"><?php esc_html_e( 'Pull "Reply To" Email Dynamically from Field:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_reply_to_field" class="form-email-notification-reply-to-field" id="ccf_form_email_notification_reply_to_field">
+							</select>
+						</p>
+
+						<p class="email-notification-setting">
+							<label for="ccf_form_email_notification_reply_to_name_type"><?php esc_html_e( '"Reply To" Name Type:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_reply_to_name_type" class="form-email-notification-reply-to-name-type" id="ccf_form_email_notification_reply_to_name_type">
+								<option value="custom"><?php esc_html_e( 'Custom Name', 'custom-contact-forms' ); ?></option>
+								<option value="field" <# if ( 'field' === notification.replyToNameType ) { #>selected<# } #>><?php esc_html_e( 'Form Field', 'custom-contact-forms' ); ?></option>
+							</select>
+
+							<span class="explain"><?php esc_html_e( 'You can set the notification emails "reply to" name to be a custom name or pull the name from a field in the form.', 'custom-contact-forms' ); ?></span>
+						</p>
+
+						<p class="email-notification-reply-to-name">
+							<label for="ccf_form_email_notification_reply_to_name"><?php esc_html_e( '"Reply To" Name:', 'custom-contact-forms' ); ?></label>
+							<input class="widefat form-email-notification-reply-to-name" id="ccf_form_email_notification_reply_to_name" name="email-notification-reply-to-name" value="{{ notification.replyToName }}">
+						</p>
+
+						<p class="email-notification-reply-to-name-field">
+							<label for="ccf_form_email_notification_reply_to_name_field"><?php esc_html_e( 'Pull "Reply To" Name Dynamically from Field:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_reply_to_name_field" class="form-email-notification-reply-to-name-field" id="ccf_form_email_notification_reply_to_name_field">
+							</select>
+						</p>
+
+
+
+
+						<p class="email-notification-setting">
+							<label for="ccf_form_email_notification_subject_type"><?php esc_html_e( 'Email Subject Type:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_subject_type" class="form-email-notification-subject-type" id="ccf_form_email_notification_subject_type">
+								<option value="default"><?php esc_html_e( 'Default', 'custom-contact-forms' ); ?></option>
+								<option value="custom" <# if ( 'custom' === notification.subjectType ) { #>selected<# } #>><?php esc_html_e( 'Custom Subject', 'custom-contact-forms' ); ?></option>
+								<option value="field" <# if ( 'field' === notification.subjectType ) { #>selected<# } #>><?php esc_html_e( 'Form Field', 'custom-contact-forms' ); ?></option>
+							</select>
+
+							<span class="explain"><?php esc_html_e( 'You can set the notification emails subject line to be the CCF default, custom text, or pull the subject from a field in the form.', 'custom-contact-forms' ); ?></span>
+						</p>
+
+						<p class="email-notification-subject">
+							<label for="ccf_form_email_notification_subject"><?php esc_html_e( 'Custom Email Subject:', 'custom-contact-forms' ); ?></label>
+							<input class="widefat form-email-notification-subject" id="ccf_form_email_notification_subject" name="email-notification-subject" value="{{ notification.subject }}">
+						</p>
+
+						<p class="email-notification-subject-field">
+							<label for="ccf_form_email_notification_subject_field"><?php esc_html_e( 'Pull Email Subject Dynamically from Field:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_subject_field" class="form-email-notification-subject-field" id="ccf_form_email_notification_subject_field">
+							</select>
+						</p>
+
+
+						<p><strong><?php esc_html_e( 'We highly recommend leaving the "from" fields below as their defaults to ensure your notification emails get delivered.', 'custom-contact-forms' ); ?></strong></p>
 
 						<p class="email-notification-setting">
 							<label for="ccf_form_email_notification_from_type"><?php esc_html_e( '"From" Email Address Type:', 'custom-contact-forms' ); ?></label>
@@ -291,25 +378,11 @@ class CCF_Form_Manager {
 							</select>
 						</p>
 
-						<p class="email-notification-setting">
-							<label for="ccf_form_email_notification_subject_type"><?php esc_html_e( 'Email Subject Type:', 'custom-contact-forms' ); ?></label>
-							<select name="email_notification_subject_type" class="form-email-notification-subject-type" id="ccf_form_email_notification_subject_type">
-								<option value="default"><?php esc_html_e( 'Default', 'custom-contact-forms' ); ?></option>
-								<option value="custom" <# if ( 'custom' === notification.subjectType ) { #>selected<# } #>><?php esc_html_e( 'Custom Subject', 'custom-contact-forms' ); ?></option>
-								<option value="field" <# if ( 'field' === notification.subjectType ) { #>selected<# } #>><?php esc_html_e( 'Form Field', 'custom-contact-forms' ); ?></option>
-							</select>
-
-							<span class="explain"><?php esc_html_e( 'You can set the notification emails subject line to be the CCF default, custom text, or pull the subject from a field in the form.', 'custom-contact-forms' ); ?></span>
-						</p>
-
-						<p class="email-notification-subject">
-							<label for="ccf_form_email_notification_subject"><?php esc_html_e( 'Custom Email Subject:', 'custom-contact-forms' ); ?></label>
-							<input class="widefat form-email-notification-subject" id="ccf_form_email_notification_subject" name="email-notification-subject" value="{{ notification.subject }}">
-						</p>
-
-						<p class="email-notification-subject-field">
-							<label for="ccf_form_email_notification_subject_field"><?php esc_html_e( 'Pull Email Subject Dynamically from Field:', 'custom-contact-forms' ); ?></label>
-							<select name="email_notification_subject_field" class="form-email-notification-subject-field" id="ccf_form_email_notification_subject_field">
+						<p>
+							<label for="ccf_form_email_notification_include_uploads"><?php esc_html_e( 'Include File Uploads:', 'custom-contact-forms' ); ?></label>
+							<select name="email_notification_include_uploads" class="form-email-notification-include-uploads" id="ccf_form_email_notification_include_uploads">
+								<option value="1"><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
+								<option value="0" <# if ( ! notification.includeUploads ) { #>selected<# } #>><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
 							</select>
 						</p>
 					</div>
@@ -342,6 +415,15 @@ class CCF_Form_Manager {
 			</p>
 
 			<p>
+				<label for="ccf_form_hide_title"><?php esc_html_e( 'Hide Form Title:', 'custom-contact-forms' ); ?></label>
+
+				<select name="form_hide_title" class="hide-title" id="ccf_form_hide_title">
+					<option value="0"><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
+					<option value="1" <# if ( form.hideTitle ) { #>selected<# } #>><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
+				</select>
+			</p>
+
+			<p>
 				<label for="ccf_form_description"><?php esc_html_e( 'Form Description:', 'custom-contact-forms' ); ?></label>
 				<textarea class="widefat form-description" id="ccf_form_description" name="description">{{ form.description }}</textarea>
 			</p>
@@ -349,6 +431,11 @@ class CCF_Form_Manager {
 			<p>
 				<label for="ccf_form_button_text"><?php esc_html_e( 'Button Text:', 'custom-contact-forms' ); ?></label>
 				<input class="widefat form-button-text" id="ccf_form_button_text" name="text" type="text" value="{{ form.buttonText }}">
+			</p>
+
+			<p>
+				<label for="ccf_form_button_class"><?php esc_html_e( 'Button Class:', 'custom-contact-forms' ); ?></label>
+				<input class="widefat form-button-class" id="ccf_form_button_class" name="class" type="text" value="{{ form.buttonClass }}">
 			</p>
 
 			<p>
@@ -390,6 +477,14 @@ class CCF_Form_Manager {
 			<p class="pause-message">
 				<label for="ccf_form_pause_message"><?php esc_html_e( 'Pause Message:', 'custom-contact-forms' ); ?></label>
 				<textarea class="widefat form-pause-message" id="ccf_form_pause_message" name="pause-message">{{ form.pauseMessage }}</textarea>
+			</p>
+			<p>
+				<label for="ccf_form_require_logged_in"><?php esc_html_e( 'Require User to Be Logged In:', 'custom-contact-forms' ); ?></label>
+
+				<select name="form_require_logged_in" class="form-require-logged-in" id="ccf_form_require_logged_in">
+					<option value="0"><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
+					<option value="1" <# if ( form.requireLoggedIn ) { #>selected<# } #>><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
+				</select>
 			</p>
 
 			<h3><?php esc_html_e( 'Email Notifications', 'custom-contact-forms' ); ?></h3>
@@ -621,7 +716,7 @@ class CCF_Form_Manager {
 					</div>
 					<div>
 						<label for="ccf-field-file-extensions"><?php esc_html_e( 'Allowed File Extensions (comma separate):', 'custom-contact-forms' ); ?></label>
-						<input id="ccf-field-file-extensions" class="field-file-extensions" type="text" value="{{ field.fileExtensions }}">
+						<input id="ccf-field-file-extensions" class="field-file-extensions" type="text" value="{{ field.fileExtensions }}" placeholder="jpg,gif,png">
 						<span class="explain"><?php _e( 'If left blank, will default to all extensions registered by WordPress. If you use a file extension or mime type not <a href="http://codex.wordpress.org/Function_Reference/get_allowed_mime_types">whitelisted by WordPress</a>, you will need to filter and manually whitelist the new extension.', 'custom-contact-forms' ); ?></span>
 					</div>
 					<div>
@@ -705,29 +800,34 @@ class CCF_Form_Manager {
 						<label for="ccf-field-class-name"><?php esc_html_e( 'Class Name:', 'custom-contact-forms' ); ?></label>
 						<input id="ccf-field-class-name" class="field-class-name" type="text" value="{{ field.className }}">
 					</div>
+				</div>
+			</div>
+		</script>
+
+		<script type="text/html" id="ccf-simple-captcha-template">
+			<div class="accordion-section <# if ( 'basic' === startPanel ) { #>expanded<# } #>">
+				<a class="accordion-heading">Basic</a>
+				<div class="section-content">
 					<div>
-						<label for="ccf-field-conditionals-enabled"><?php esc_html_e( 'Enable Conditional Logic:', 'custom-contact-forms' ); ?></label>
-						<select id="ccf-field-conditionals-enabled" class="field-conditionals-enabled">
-							<option value="0"><?php esc_html_e( 'No', 'custom-contact-forms' ); ?></option>
-							<option value="1" <# if ( field.conditionalsEnabled ) { #>selected="selected"<# } #>><?php esc_html_e( 'Yes', 'custom-contact-forms' ); ?></option>
-						</select>
+						<label for="ccf-field-label"><?php esc_html_e( 'Label:', 'custom-contact-forms' ); ?></label>
+						<input id="ccf-field-label" class="field-label" type="text" value="{{ field.label }}">
 					</div>
-					<div class="<# if ( ! field.conditionalsEnabled ) { #>hide<# } #>">
-						<select class="field-conditional-type">
-							<option value="hide"><?php esc_html_e( 'Hide', 'custom-contact-forms' ); ?></option>
-							<option <# if ( 'show' === field.conditionalType ) { #>selected="selected"<# } #> value="show"><?php esc_html_e( 'Show', 'custom-contact-forms' ); ?></option>
-						</select>
-
-						<?php esc_html_e( 'this field if', 'custom-contact-forms' ); ?>
-
-						<select class="field-conditional-fields-required">
-							<option value="all"><?php esc_html_e( 'All', 'custom-contact-forms' ); ?></option>
-							<option <# if ( 'any' === field.conditionalFieldsRequired ) { #>selected="selected"<# } #> value="any"><?php esc_html_e( 'Any', 'custom-contact-forms' ); ?></option>
-						</select>
-
-						<?php esc_html_e( 'of these conditions are true:', 'custom-contact-forms' ); ?>
+					<div>
+						<label for="ccf-field-description"><?php esc_html_e( 'Description:', 'custom-contact-forms' ); ?></label>
+						<textarea id="ccf-field-description" class="field-description">{{ field.description }}</textarea>
 					</div>
-					<div class="conditionals <# if ( ! field.conditionalsEnabled ) { #>hide<# } #>">
+				</div>
+			</div>
+			<div class="accordion-section <# if ( 'advanced' === startPanel ) { #>expanded<# } #>">
+				<a class="accordion-heading"><?php esc_html_e( 'Advanced', 'custom-contact-forms' ); ?></a>
+				<div class="section-content">
+					<div>
+						<label for="ccf-field-class-name"><?php esc_html_e( 'Class Name:', 'custom-contact-forms' ); ?></label>
+						<input id="ccf-field-class-name" class="field-class-name" type="text" value="{{ field.className }}">
+					</div>
+					<div>
+						<label for="ccf-field-placeholder"><?php esc_html_e( 'Placeholder Text:', 'custom-contact-forms' ); ?></label>
+						<input id="ccf-field-placeholder" class="field-placeholder" type="text" value="{{ field.placeholder }}">
 					</div>
 				</div>
 			</div>
@@ -1259,6 +1359,16 @@ class CCF_Form_Manager {
 							<option value="international" <# if ( 'international' === field.addressType ) { #>selected="selected"<# } #>><?php esc_html_e( 'International', 'custom-contact-forms' ); ?></option>
 						</select>
 					</div>
+					<# if ( 'international' === field.addressType ) { #>
+						<div>
+							<label for="ccf-field-default-country"><?php esc_html_e( 'Default Country:', 'custom-contact-forms' ); ?></label>
+							<select id="ccf-field-default-country" class="field-default-country">
+								<?php foreach ( CCF_Constants::factory()->get_countries() as $country ) : ?>
+									<option <# if ( "<?php echo $country; ?>" === field.defaultCountry ) { #>selected<# } #>><?php echo $country; ?></option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+					<# } #>
 					<div>
 						<label for="ccf-field-required"><?php esc_html_e( 'Required:', 'custom-contact-forms' ); ?></label>
 						<select id="ccf-field-required" class="field-required">
@@ -1386,7 +1496,11 @@ class CCF_Form_Manager {
 			<a aria-hidden="true" data-icon="&#xe606;" class="move"></a>
 			<input class="choice-selected" <# if ( choice.selected ) { #>checked<# } #> name="selected" type="checkbox" value="1">
 			<input class="choice-label" type="text" placeholder="<?php esc_html_e( 'Label', 'custom-contact-forms' ); ?>" value="{{ choice.label }}">
-			<input class="choice-value" type="text" placeholder="<?php esc_html_e( 'Value', 'custom-contact-forms' ); ?>" value="{{ choice.value }}">
+			
+			<# if ( showValue ) { #>
+				<input class="choice-value" type="text" placeholder="<?php esc_html_e( 'Value', 'custom-contact-forms' ); ?>" value="{{ choice.value }}">
+			<# } #>
+
 			<a aria-hidden="true" data-icon="&#xe605;" class="add"></a>
 			<a aria-hidden="true" data-icon="&#xe604;" class="delete"></a>
 		</script>
@@ -1432,11 +1546,18 @@ class CCF_Form_Manager {
 						</select>
 					</div>
 					<div>
+						<div class="toggle-use-values">
+							<input class="field-use-values" type="checkbox" <# if ( field.useValues ) { #>checked<# } #>>
+
+							<?php esc_html_e( 'Use values (advanced)', 'custom-contact-forms' ); ?>
+						</div>
 						<label><?php esc_html_e( 'Manage field choices:', 'custom-contact-forms' ); ?></label>
-						<div class="repeatable-choices">
+						<div class="repeatable-choices <# if ( field.useValues ) { #>use-values<# } #>">
 						</div>
 
-						<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# if ( field.useValues ) { #>
+							<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# } #>
 					</div>
 				</div>
 			</div>
@@ -1499,11 +1620,18 @@ class CCF_Form_Manager {
 						</select>
 					</div>
 					<div>
+						<div class="toggle-use-values">
+							<input class="field-use-values" type="checkbox" <# if ( field.useValues ) { #>checked<# } #>>
+
+							<?php esc_html_e( 'Use values (advanced)', 'custom-contact-forms' ); ?>
+						</div>
 						<label><?php esc_html_e( 'Manage field choices:', 'custom-contact-forms' ); ?></label>
-						<div class="repeatable-choices">
+						<div class="repeatable-choices <# if ( field.useValues ) { #>use-values<# } #>">
 						</div>
 
-						<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# if ( field.useValues ) { #>
+							<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# } #>
 					</div>
 				</div>
 			</div>
@@ -1566,11 +1694,18 @@ class CCF_Form_Manager {
 						</select>
 					</div>
 					<div>
+						<div class="toggle-use-values">
+							<input class="field-use-values" type="checkbox" <# if ( field.useValues ) { #>checked<# } #>>
+
+							<?php esc_html_e( 'Use values (advanced)', 'custom-contact-forms' ); ?>
+						</div>
 						<label><?php esc_html_e( 'Manage field choices:', 'custom-contact-forms' ); ?></label>
-						<div class="repeatable-choices">
+						<div class="repeatable-choices <# if ( field.useValues ) { #>use-values<# } #>">
 						</div>
 
-						<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# if ( field.useValues ) { #>
+							<p><?php esc_html_e( "Note: If an option does not have a \"value\", it will not be considered a valid selection if the field is required. The \"value\" is what's read, stored, and displayed in the submission.", 'custom-contact-forms' ); ?></p>
+						<# } #>
 					</div>
 				</div>
 			</div>
@@ -1643,7 +1778,17 @@ class CCF_Form_Manager {
 
 		<script type="text/html" id="ccf-recaptcha-preview-template">
 			<label>{{ field.label }} <# if ( field.required ) { #><span class="required">*</span><# } #> <# if ( field.conditionalsEnabled ) { #><span class="conditionals-enabled">if</span><# } #></label>
-			<img class="recaptcha-preview-img" src="<?php echo plugins_url( 'img/recaptcha.png', dirname( __FILE__ ) ); ?>">
+			<img class="recaptcha-preview-img" src="<?php echo plugins_url( 'assets/img/recaptcha.png', dirname( __FILE__ ) ); ?>">
+			<# if ( field.description ) { #>
+				<div class="field-description">{{ field.description }}</div>
+			<# } #>
+		</script>
+
+		<script type="text/html" id="ccf-simple-captcha-preview-template">
+			<label>{{ field.label }} <# if ( field.required ) { #><span class="required">*</span><# } #></label>
+			<img class="simple-captcha-preview-img" src="<?php echo plugins_url( 'assets/img/simple-captcha.png', dirname( __FILE__ ) ); ?>">
+			
+			<input disabled type="text" placeholder="{{ field.placeholder }}" value="{{ field.value }}">
 			<# if ( field.description ) { #>
 				<div class="field-description">{{ field.description }}</div>
 			<# } #>
@@ -1840,7 +1985,7 @@ class CCF_Form_Manager {
 				<div class="right">
 					<select>
 						<?php foreach ( CCF_Constants::factory()->get_countries() as $country ) : ?>
-							<option><?php echo $country; ?></option>
+							<option <# if ( "<?php echo $country; ?>" === field.defaultCountry ) { #>selected<# } #>><?php echo $country; ?></option>
 						<?php endforeach; ?>
 					</select>
 					<label class="sub-label"><?php esc_html_e( 'Country', 'custom-contact-forms' ); ?></label>
@@ -1894,6 +2039,7 @@ class CCF_Form_Manager {
 				<div class="actions">
 					<a class="edit edit-form" data-view="form-pane" data-form-id="{{ form.id }}" href="#form-pane-{{ form.id }}"><?php esc_html_e( 'Edit', 'custom-contact-forms' ); ?></a> |
 					<a class="insert-form-button"><?php esc_html_e( 'Insert into post', 'custom-contact-forms' ); ?></a> |
+					<a class="duplicate"><?php esc_html_e( 'Duplicate form', 'custom-contact-forms' ); ?></a> |
 					<a class="delete"><?php esc_html_e( 'Trash', 'custom-contact-forms' ); ?></a>
 				</div>
 			</td>
@@ -2089,6 +2235,14 @@ class CCF_Form_Manager {
 						<div class="field-content">
 							{{ submission.ip_address }}
 						</div>
+						<# if ( submission.form_page_url ) { #>
+							<div class="field-slug">
+								<?php esc_html_e( 'Form Page URL', 'custom-contact-forms' ); ?>
+							</div>
+							<div class="field-content">
+								{{ submission.form_page_url }}
+							</div>
+						<# } #>
 					</div>
 				</div>
 			</td>
@@ -2134,9 +2288,9 @@ class CCF_Form_Manager {
 	 * @since 6.0
 	 */
 	public function action_admin_enqueue_scripts_css() {
-		global $pagenow;
+		global $pagenow, $wp_customize;
 
-		if ( 'post.php' == $pagenow || 'post-new.php' == $pagenow ) {
+		if ( 'post.php' == $pagenow || 'post-new.php' == $pagenow || ( ! empty( $wp_customize ) && isset( $wp_customize->posts ) ) ) {
 			if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
 				$js_manager_path = '/assets/build/js/form-manager.js';
 				$js_mce_path = '/assets/js/form-mce.js';
@@ -2170,6 +2324,7 @@ class CCF_Form_Manager {
 				'address' => __( 'Address', 'custom-contact-forms' ),
 				'phone' => __( 'Phone', 'custom-contact-forms' ),
 				'recaptcha' => __( 'reCAPTCHA', 'custom-contact-forms' ),
+				'simple-captcha' => __( 'Simple CAPTCHA', 'custom-contact-forms' ),
 			));
 
 			wp_register_script( 'moment', plugins_url( '/bower_components/moment/moment.js', dirname( __FILE__ ) ), array(), CCF_VERSION );
@@ -2201,6 +2356,7 @@ class CCF_Form_Manager {
 				'postsPerPage' => (int) get_option( 'posts_per_page' ),
 				'structureFieldLabels' => $structure_field_labels,
 				'specialFieldLabels' => $special_field_labels,
+				'defaultSimpleCaptchaPlaceholder' => esc_html__( 'Type the characters in the image', 'custom-contact-forms' ),
 				'maxFileSize' => floor( wp_max_upload_size() / 1000 / 1000 ),
 				'noEmailFields' => esc_html__( 'You have no email fields', 'custom-contact-forms' ),
 				'noAvailableFields' => esc_html__( 'No available fields', 'custom-contact-forms' ),
@@ -2212,7 +2368,7 @@ class CCF_Form_Manager {
 				'fieldLabel' => esc_html__( 'Field Label', 'custom-contact-forms' ),
 				'thickboxTitle' => esc_html__( 'Form Submission', 'custom-contact-forms' ),
 				'pauseMessage' => esc_html__( 'This form is paused right now. Check back later!', 'custom-contact-forms' ),
-				'skipFields' => apply_filters( 'ccf_no_submission_display_fields', array( 'html', 'section-header', 'recaptcha' ) ),
+				'skipFields' => apply_filters( 'ccf_no_submission_display_fields', array( 'html', 'section-header', 'recaptcha', 'simple-captcha' ) ),
 				'choosePostField' => esc_html__( 'Choose a Post Field', 'custom-contact-forms' ),
 				'postFields' => array(
 					'single' => array(

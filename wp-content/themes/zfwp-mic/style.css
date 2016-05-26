@@ -119,7 +119,7 @@ iframe {border:none;}
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover; 
+    background-size: cover;
     /*height:470px;*/
     width:100%;
 }
@@ -168,8 +168,8 @@ iframe {border:none;}
     /*height:470px;*/
     width:100%;
 }
-.green-bg { 
-    background-color:#a9ad00; 
+.green-bg {
+    background-color:#a9ad00;
     /*height:86px;*/
 }
 
@@ -414,7 +414,7 @@ article h2 { font-family: 'Lato', sans-serif; margin-bottom:.5em; color:inherit;
 .entry-content .entry-case-study-right .entry-samples .gallery-columns-2 figure:nth-child(2n):after { content:'\a'; white-space:pre; }
 .entry-content .entry-case-study-right .entry-samples .gallery-columns-3 figure:nth-child(3n):after { content:'\a'; white-space:pre; }
 .entry-content .entry-case-study-right .entry-samples .gallery-columns-3 figure:nth-child(4n):after { content:'\a'; white-space:pre; }
-.entry-content .entry-case-study-right .entry-testimonial { font-size:16px; } 
+.entry-content .entry-case-study-right .entry-testimonial { font-size:16px; }
 .entry-content .entry-case-study-right .entry-testimonial div img { border-radius:50%; margin-top: 1em; margin-bottom: 1.56em;}
 .entry-content .entry-case-study-right .entry-testimonial h4 { margin-top:16%; font-weight:bold; color:inherit; }
 .entry-content .entry-case-study-right .entry-testimonial h5 { font-weight:bold; font-style:italic; color:#f28b00; }
@@ -655,7 +655,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .latest-tweets h3 {
     /* style whatever you did with the header */
 }
-.latest-tweets ul { 
+.latest-tweets ul {
     /* style tweet list*/
     list-style-type: none;
     margin:0;
@@ -671,7 +671,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
     color: #f28b00;
 }
 .latest-tweets .tweet-text .emoji {
-  /* style embedded emoji image in tweet */ 
+  /* style embedded emoji image in tweet */
 }
 .latest-tweets .tweet-details {
   /* style datetime and link under tweet */
@@ -742,21 +742,21 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
     #lt-sidebar-separator { border-right: none; }
     .four-o-four .page-header .page-title { font-weight:bold; font-style:italic; font-size:100px; text-align:center; margin:0; line-height:.9em; padding-top:.2em;}
     .four-o-four .sub-title-four-o-four { font-size:37px; text-align:center; margin:0; color:#505050; padding: .6em 0;}
-    
+
 
 } /* Define mobile styles */
 
 /*iPhone 5 & 5S Media Queries*/
-@media only screen 
-and (min-device-width : 320px) 
-and (max-device-width : 568px) { 
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
     .four-o-four .page-header .page-title {font-size:95px; padding-top:.2em;}
     .site-footer{display:none;}
-    
+
 
 }
 
-@media only screen and (max-width: 40em) { 
+@media only screen and (max-width: 40em) {
 /*.four-o-four .page-header .page-title {padding-top:.1em;}*/
 
 } /* max-width 640px, mobile-only styles, use when QAing mobile issues */
@@ -784,7 +784,7 @@ and (max-device-width : 568px) {
         color: #898a8e;
         padding-left: 2px;
 }*/
-    
+
 } /* min-width 641px, medium screens */
 
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
@@ -806,7 +806,7 @@ and (max-device-width : 568px) {
     .row.large-uncollapse > .column, .row.large-uncollapse > .columns { padding-left: 2rem; float: left; }
     #circle-nav li { margin:0.75em 3em 29px 3em; }
     #services-list #services-list-title a, #services-list #services-list-title a:hover,
-    #services-list #services-list-title a:visited { font-size:1.2em; font-weight:bold; color:#898a8e; padding-left: 4px;} 
+    #services-list #services-list-title a:visited { font-size:1.2em; font-weight:bold; color:#898a8e; padding-left: 4px;}
     .entry-content .display-posts-listing-examples .listing-item .title {clear:none;}
     .footer-box { text-align: center; border-right: 1px solid white;}
     hr {border: solid #ddd;border-width: 1px 0 0; clear: both;height: 0; margin: 1.25rem 0 1.1875rem;}
@@ -826,7 +826,7 @@ and (max-device-width : 568px) {
     .team .team-member { width:150px; }
 } /* min-width 1441px, xlarge screens */
 
-@media only screen and (min-width: 90.063em) and (max-width: 120em) { 
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {
 
 
 } /* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
@@ -836,5 +836,34 @@ and (max-device-width : 568px) {
     #site { width:100%; display:inherit; margin-bottom:1.25em; }
     #widget-area { width:100%; display:inherit; }
     .team .team-member { width:150px; }
-    
+
 } /* min-width 1921px, xxlarge screens */
+
+
+@media only screen {
+    .format-gallery .entry-content .meteor-slides {
+        margin: auto;
+        max-width: calc(100%);
+    }
+}
+@media only screen and (min-width: 64.063em) {
+    .format-gallery .entry-content .meteor-slides {
+        margin:auto;
+        max-width: calc(100% / 12 * 8);
+    }
+}
+.format-gallery .entry-content ul.meteor-nav {
+	display: block;
+}
+.format-gallery .entry-content .meteor-nav .prev a:hover {
+    background: rgba(0, 0, 0, 0.1) url("//marketingincolor.com/wp-content/plugins/meteor-slides/images/ig-prev.png") no-repeat scroll right center;
+}
+.format-gallery .entry-content .meteor-nav .prev a {
+    background: rgba(0, 0, 0, 0.2) url("//marketingincolor.com/wp-content/plugins/meteor-slides/images/ig-prev.png") no-repeat scroll left center;
+}
+.format-gallery .entry-content .meteor-nav .next a:hover {
+    background: rgba(0, 0, 0, 0.1) url("//marketingincolor.com/wp-content/plugins/meteor-slides/images/ig-next.png") no-repeat scroll left center;
+}
+.format-gallery .entry-content .meteor-nav .next a {
+    background: rgba(60, 0, 0, 0.2) url("//marketingincolor.com/wp-content/plugins/meteor-slides/images/ig-next.png") no-repeat scroll right center;
+}

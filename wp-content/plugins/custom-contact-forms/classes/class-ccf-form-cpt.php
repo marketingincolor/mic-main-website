@@ -28,6 +28,7 @@ class CCF_Form_CPT {
 		add_filter( 'manage_edit-ccf_form_columns', array( $this, 'filter_columns' ) );
 		add_action( 'manage_ccf_form_posts_custom_column', array( $this, 'action_columns' ), 10, 2 );
 		add_action( 'admin_enqueue_scripts', array( $this, 'action_admin_enqueue_scripts' ), 9 );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'action_admin_enqueue_scripts' ) );
 		add_action( 'edit_form_after_title', array( $this, 'action_edit_form_after_title' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_filter( 'post_row_actions', array( $this, 'filter_post_row_actions' ), 10, 2 );
@@ -408,7 +409,8 @@ class CCF_Form_CPT {
 
 		<div id="major-publishing-actions">
 			<div id="delete-action">
-				<a class="submitdelete deletion" href="<?php echo get_delete_post_link( $post->ID ); ?>"><?php esc_html_e( 'Move to Trash', 'custom-contact-forms' ); ?></a>
+				<a class="submitdelete deletion" href="<?php echo get_delete_post_link( $post->ID ); ?>"><?php esc_html_e( 'Move to Trash', 'custom-contact-forms' ); ?></a><br>
+				<a class="submitdelete duplicate" href=""><?php esc_html_e( 'Duplicate', 'custom-contact-forms' ); ?></a>
 				<div class="clear"></div>
 			</div>
 
@@ -474,9 +476,16 @@ class CCF_Form_CPT {
 		}
 		wp_enqueue_style( 'ccf-admin', plugins_url( $admin_css_path, dirname( __FILE__ ) ), array(), CCF_VERSION );
 
-		global $pagenow;
+		global $pagenow, $wp_customize;
 
-		if ( ( 'post.php' === $pagenow && 'ccf_form' === get_post_type() ) || ( 'post-new.php' === $pagenow && isset( $_GET['post_type'] ) && 'ccf_form' === $_GET['post_type'] ) ) {
+		$is_edit_post = (
+			( 'post.php' === $pagenow && 'ccf_form' === get_post_type() )
+			||
+			( 'post-new.php' === $pagenow && isset( $_GET['post_type'] ) && 'ccf_form' === $_GET['post_type'] )
+			||
+			( ! empty( $wp_customize ) && isset( $wp_customize->posts ) )
+		);
+		if ( $is_edit_post ) {
 			wp_dequeue_script( 'autosave' );
 
 			add_thickbox();
@@ -505,6 +514,7 @@ class CCF_Form_CPT {
 			'author' => esc_html__( 'Author', 'custom-contact-forms' ),
 			'submissions' => esc_html__( 'Submissions', 'custom-contact-forms' ),
 			'fields' => esc_html__( 'Number of Fields', 'custom-contact-forms' ),
+			'ccf_form_id' => esc_html__( 'Form ID', 'custom-contact-forms' ),
 			'ccf_date' => esc_html__( 'Date', 'custom-contact-forms' ),
 		);
 
@@ -534,6 +544,10 @@ class CCF_Form_CPT {
 				} else {
 					echo count( $fields );
 				}
+
+				break;
+			case 'ccf_form_id':
+				echo (int) $post->ID;
 
 				break;
 			case 'ccf_date':
@@ -586,6 +600,7 @@ class CCF_Form_CPT {
 			'exclude_from_search' => true,
 			'show_ui' => true,
 			'show_in_menu' => true,
+			'show_in_customizer' => false,
 			'query_var' => false,
 			'rewrite' => false,
 			'capability_type' => 'post',

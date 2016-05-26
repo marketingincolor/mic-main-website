@@ -129,7 +129,6 @@ function modify_user_contact_methods( $user_contact ) {
 }
 add_filter( 'user_contactmethods', 'modify_user_contact_methods' );
 
-
 // Shortcode for display of Custom Contact Forms [ccf id="##"]
 function ccf_shortcode ( $atts ){
 	$val = shortcode_atts( array(
@@ -298,12 +297,16 @@ function ccat_shortcode ( $atts ){
 }
 add_shortcode('ccat-display', 'ccat_shortcode');
 
-
-
-
-
-
-
+function rename_post_formats($translation, $text, $context, $domain) {
+    $names = array(
+        'Gallery'  => 'Infographic'
+    );
+    if ($context == 'Post format') {
+        $translation = str_replace(array_keys($names), array_values($names), $text);
+    }
+    return $translation;
+}
+add_filter('gettext_with_context', 'rename_post_formats', 10, 4);
 
 
 
@@ -376,27 +379,13 @@ add_shortcode('custom-sample-js', 'sample_js_sort');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Add Custom Inline Aside Shortcode
 function custom_entry_inline_aside_h2() {
 	return '<h2>You May Also Like</h2>';
 };
 add_shortcode('entry_inline_aside_h2', 'custom_entry_inline_aside_h2');
 
+// Remove dropcap used by previous theme from old content
 function ignore_dropcap() {
 	echo '';
 };
@@ -450,6 +439,14 @@ function display_posts_change_order( $output, $atts, $image, $title, $date, $exc
 }
 add_filter( 'display_posts_shortcode_output', 'display_posts_change_order', 10, 9 );
 
-
-
-
+add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 10, 7 );
+function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $excerpt, $inner_wrapper ) {
+	if ( $atts['include_excerpt'] ) {
+		$more = '...<div><a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( ' Read More', 'fwp-base' ) . '</a></div>';
+		$new_excerpt = '<span class="excerpt"> ' . wp_trim_words(get_the_content_feed(), 25, $more ) . '</span>';
+	} else {
+		$new_excerpt = '';
+	}
+	$output = '<' . $inner_wrapper . ' class="listing-item">' . $image . $title . $date . $new_excerpt . '</' . $inner_wrapper . '>';
+	return $output;
+}
