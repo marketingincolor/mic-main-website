@@ -490,7 +490,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .sample-display-grid .listing-item .image { display:block; padding-bottom:10px; }
 .sample-display-grid .listing-item .title { display:block; color:inherit; font-size:.75em; padding-top:.6em;}
 .sample-display-grid .listing-item .title:last-child {padding-top:0 !important;}
-
+.services .sample-display-grid .listing-item .excerpt { display:none; }
 .sample-display-grid .listing-item img { border-radius:50%; border: 1px solid #a3a4a7} /*ad*/
 
 .author-meta { display:block; }
