@@ -8,7 +8,7 @@ This GitHub repository includes the entire WP installation, including the theme 
 
 Please note, however, that the wp-config.php file is NOT part of this repository for security reasons. See the `.gitignore` file for details.
 
-###Project Details
+### Project Details
 Project Manager: Cheryl Parrish
 
 Primary Developer: Edd Twilbeck
@@ -19,5 +19,6 @@ Due Date: ~~01.01.16~~ 02.15.16
 
 Completion Date: 03.09.16
 
-####Notes
+#### Notes
 * Fully customized site theme
+* Ongoing changes maintained in this repo

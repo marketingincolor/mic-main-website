@@ -66,9 +66,7 @@ a {color:#f28b00;}
 
 /* SharpSpring Page*/
 iframe {border:none;}
-
-#services-list-img a img{ position:relative;bottom:2px;}
-}
+#services-list-img a img{ position:relative;bottom:2px; }
 
  /* 2.0 Repeatable Patterns
  * -----------------------------------------------------------------------------
@@ -477,6 +475,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .inline-display .listing-item .excerpt .read-more:hover, .entry-content .read-more:hover { border-color:transparent; color:#fff !important; background-color:#898a8e; }
 
 .inline-display-staff {}
+.inline-display-staff .listing-item { display:inline-block; width:42%; margin:2%; }
 .inline-display-staff .listing-item img { border-radius:10px; width:auto; }
 .inline-display-staff .listing-item .title { color: #898a8e; font-weight:bold; font-size: 1.125rem; display:block; margin:5px 0;}
 .inline-display-staff .listing-item .image { display:inline-block; float:left; margin-right:20px; }
@@ -490,6 +489,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .sample-display-grid .listing-item .image { display:block; padding-bottom:10px; }
 .sample-display-grid .listing-item .title { display:block; color:inherit; font-size:.75em; padding-top:.6em;}
 .sample-display-grid .listing-item .title:last-child {padding-top:0 !important;}
+.entry-samples .sample-display-grid .listing-item .excerpt { display:none; }
 .services .sample-display-grid .listing-item .excerpt { display:none; }
 .sample-display-grid .listing-item img { border-radius:50%; border: 1px solid #a3a4a7} /*ad*/
 
