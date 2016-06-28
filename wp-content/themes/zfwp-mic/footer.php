@@ -59,12 +59,12 @@ var google_remarketing_only = true;
 							<div class="widget-details">
 								<a href="tel:<?php do_action( 'co_phone' ); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ph.png">
-								<?php do_action( 'co_phone' ); ?></a>
+								<span itemprop="telephone"><?php do_action( 'co_phone' ); ?></span></a>
 							</div>
 							<div class="widget-details">
 								<a href="mailto:<?php do_action( 'co_email' ); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-em.png">
-								<?php do_action( 'co_email' ); ?></a>
+								<span itemprop="email"><?php do_action( 'co_email' ); ?></span></a>
 							</div>
 							<div class="widget-details">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ad.png">

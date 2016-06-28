@@ -171,27 +171,28 @@ add_action( 'co_sharpspring', 'display_co_sharpspring', 10);
 function display_social_media_icons( $pagelocation ){
 	$custom_option = get_option('custom_option_name');
 	$stringfix = ($pagelocation == 'header' ? 'right' : 'center');
-	echo '<div class="social-icons">';
+	echo '<div class="social-icons" itemscope itemtype="http://schema.org/Organization">';
+	echo '<a itemprop="url" href="http://www.marketingincolor.com" class="hide"></a>';
 	echo '<p style="text-align:' . $stringfix . ';" >' ;
 
 	if ($custom_option['fb_link']) :
-		echo '&nbsp;<a href="'.$custom_option['fb_link'].'" target="_blank"><i class="fa fa-facebook-square"></i></a>&nbsp;';
+		echo '&nbsp;<a itemprop="sameAs" href="'.$custom_option['fb_link'].'" target="_blank"><i class="fa fa-facebook-square"></i></a>&nbsp;';
 	endif;
 
 	if ($custom_option['tw_link']) :
-		echo '&nbsp;<a href="'.$custom_option['tw_link'].'" target="_blank"><i class="fa fa-twitter"></i></a>&nbsp;';
+		echo '&nbsp;<a itemprop="sameAs" href="'.$custom_option['tw_link'].'" target="_blank"><i class="fa fa-twitter"></i></a>&nbsp;';
 	endif;
 
 	if ($custom_option['ig_link']) :
-		echo '&nbsp;<a href="'.$custom_option['ig_link'].'" target="_blank"><i class="fa fa-instagram"></i></a>&nbsp;';
+		echo '&nbsp;<a itemprop="sameAs" href="'.$custom_option['ig_link'].'" target="_blank"><i class="fa fa-instagram"></i></a>&nbsp;';
 	endif;
 
 	if ($custom_option['li_link']) :
-		echo '&nbsp;<a href="'.$custom_option['li_link'].'" target="_blank"><i class="fa fa-linkedin-square"></i></a>&nbsp;';
+		echo '&nbsp;<a itemprop="sameAs" href="'.$custom_option['li_link'].'" target="_blank"><i class="fa fa-linkedin-square"></i></a>&nbsp;';
 	endif;
 
 	if ($custom_option['pi_link']) :
-		echo '&nbsp;<a href="'.$custom_option['pi_link'].'" target="_blank"><i class="fa fa-pinterest"></i></a>&nbsp;';
+		echo '&nbsp;<a itemprop="sameAs" href="'.$custom_option['pi_link'].'" target="_blank"><i class="fa fa-pinterest"></i></a>&nbsp;';
 	endif;
 
 	echo '</p></div>';

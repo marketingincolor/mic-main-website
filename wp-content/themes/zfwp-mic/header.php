@@ -85,59 +85,60 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','GTM-TLNW5X');</script>
 <!-- End Google Tag Manager -->
 
-	<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
-        <header id="masthead" class="site-header" role="banner">
-			<div class="row">
-				<div id="logo" class="small-12 hide-for-small-down columns">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-header-logo.png" alt="Company Logo" /></a>
+	
+		<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
+	        <header id="masthead" class="site-header" role="banner">
+				<div class="row">
+					<div id="logo" class="small-12 hide-for-small-down columns" itemscope itemtype="http://schema.org/Organization">
+						<a itemprop="url" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><img itemprop="logo" src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-header-logo.png" alt="Company Logo" /></a>
+					</div>
+	            </div>
+	            <div class="row">
+					<div id="description" class="small-12 hide-for-small-down columns">
+						<h3><?php bloginfo( 'description' ); ?></h3>
+					</div>
+	            </div>
+
+	            <div class="row">
+	                <div class="show-for-medium-up medium-12 columns">
+	                    <div class="row">
+	                        <div class="small-4 small-offset-2 columns"><?php do_action( display_social_media_icons('header') );?></div>
+
+	                    <form method="get" id="searchform" action="<?php echo home_url();?>">
+	                        <div class="small-4 columns end">
+	                            <div class="header-search-form">
+	                                <div class="search-zoom search-btn"><input value="Search" type="submit"></div>
+	                                <input id="s" name="s" type="text" class="search-box" />
+	                            </div>
+	                        </div>
+	                    </form>
+
+	                    </div>
+	                </div>
 				</div>
-            </div>
-            <div class="row">
-				<div id="description" class="small-12 hide-for-small-down columns">
-					<h3><?php bloginfo( 'description' ); ?></h3>
-				</div>
-            </div>
 
-            <div class="row">
-                <div class="show-for-medium-up medium-12 columns">
-                    <div class="row">
-                        <div class="small-4 small-offset-2 columns"><?php do_action( display_social_media_icons('header') );?></div>
-
-                    <form method="get" id="searchform" action="<?php echo home_url();?>">
-                        <div class="small-4 columns end">
-                            <div class="header-search-form">
-                                <div class="search-zoom search-btn"><input value="Search" type="submit"></div>
-                                <input id="s" name="s" type="text" class="search-box" />
-                            </div>
-                        </div>
-                    </form>
-
-                    </div>
-                </div>
-			</div>
-
-            <div class="row">
-                <div class="medium-12 hide-for-small-only">
-                    <?php
-                    wp_nav_menu( array(
-                        'theme_location'  => 'primary',
-                        'menu'            => 'main-menu',
-                        'container_class' => 'c-c',
-                        'container_id'    => 'c-id',
-                        'menu_class'      => 'ul-class main-menu',
-                        'menu_id'         => 'circle-nav',
-                        'fallback_cb'     => 'wp_page_menu',
-                        'link_before'     => '',
-                        'link_after'      => '',
-                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                        'depth'           => 1,
-                        'walker'          => new custom_walker_nav_menu
-                    ) );
-                    ?>
-                </div>
-            </div>
-		</header>
-	</div>
+	            <div class="row">
+	                <div class="medium-12 hide-for-small-only">
+	                    <?php
+	                    wp_nav_menu( array(
+	                        'theme_location'  => 'primary',
+	                        'menu'            => 'main-menu',
+	                        'container_class' => 'c-c',
+	                        'container_id'    => 'c-id',
+	                        'menu_class'      => 'ul-class main-menu',
+	                        'menu_id'         => 'circle-nav',
+	                        'fallback_cb'     => 'wp_page_menu',
+	                        'link_before'     => '',
+	                        'link_after'      => '',
+	                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+	                        'depth'           => 1,
+	                        'walker'          => new custom_walker_nav_menu
+	                    ) );
+	                    ?>
+	                </div>
+	            </div>
+			</header>
+		</div>
 
 <?php if ( is_front_page() ) { ?>
 
