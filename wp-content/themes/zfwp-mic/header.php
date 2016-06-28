@@ -36,6 +36,7 @@ $header_class = 'header-base';
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php bloginfo('name'); ?> </title>
+	<link rel="alternate" href="http://www.marketingincolor.com" hreflang="en-us" />
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans|Arvo|Lato' rel='stylesheet' type='text/css'>
