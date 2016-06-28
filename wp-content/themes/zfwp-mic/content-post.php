@@ -55,7 +55,7 @@ $cs_sample_gallery = get_post_meta( $post->ID, 'work_sample_gallery', true );
 				</div>
 				<div class="small-12 medium-6 columns">
 					<time datetime="<?php echo the_time('Y-m-j'); ?>"><?php echo the_time(get_option('date_format')); ?></time>
-					by <?php the_author_link(); ?>
+					by <span class="author_name"><?php the_author_link(); ?></span>
 					<br />
 					<?php
 					$categories = get_the_category();

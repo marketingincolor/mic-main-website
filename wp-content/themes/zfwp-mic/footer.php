@@ -59,12 +59,12 @@ var google_remarketing_only = true;
 							<div class="widget-details">
 								<a href="tel:<?php do_action( 'co_phone' ); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ph.png">
-								<span itemprop="telephone"><?php do_action( 'co_phone' ); ?></span></a>
+								<?php do_action( 'co_phone' ); ?></a>
 							</div>
 							<div class="widget-details">
 								<a href="mailto:<?php do_action( 'co_email' ); ?>">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-em.png">
-								<span itemprop="email"><?php do_action( 'co_email' ); ?></span></a>
+								<?php do_action( 'co_email' ); ?></a>
 							</div>
 							<div class="widget-details">
 								<img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ad.png">
@@ -140,18 +140,6 @@ var google_remarketing_only = true;
 		})
 	})
 </script>
-<script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2624271-27']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
 
 </html>

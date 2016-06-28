@@ -451,3 +451,16 @@ function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $
 	$output = '<' . $inner_wrapper . ' class="listing-item">' . $image . $title . $date . $new_excerpt . '</' . $inner_wrapper . '>';
 	return $output;
 }
+
+//Fix for missing author, entry title, and updated in GSC
+////add hatom data
+function add_suf_hatom_data($content) {
+    $t = get_the_modified_time('F jS, Y');
+    $author = get_the_author();
+    $title = get_the_title();
+if (is_home() || is_singular() || is_archive() ) {
+        $content .= '<div class="hatom-extra" style="display:none;visibility:hidden;"><span class="entry-title">'.$title.'</span> was last modified: <span class="updated"> '.$t.'</span> by <span class="author vcard"><span class="fn">'.$author.'</span></span></div>';
+    }
+    return $content;
+    }
+add_filter('the_content', 'add_suf_hatom_data');
