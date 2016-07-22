@@ -70,11 +70,11 @@
                 $give = get_post_meta( $display_id, 'otc_give_excerpt', true );
                 $prosper = get_post_meta( $display_id, 'otc_prosper_excerpt', true );
                 echo '<ul class="true-colors NOTsmall-block-grid-5">'.
-                    '<li><img src="' . get_template_directory_uri() . '/img/Be A Partner.png">' . $partner . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Cultivate Growth.png">' . $growth . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Stay Creative.png">' . $creative . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Give Back.png">' . $give . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Prosper.png">' . $prosper . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Be A Partner.png" alt="Be a partner">' . $partner . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Cultivate Growth.png" alt="Cultivate Growth">' . $growth . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Stay Creative.png" alt="Stay Creative">' . $creative . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Give Back.png" alt="Give Back">' . $give . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Prosper.png" alt="Prosper">' . $prosper . '</li>' .
                     '</ul>';
                 ?>
             </div>
