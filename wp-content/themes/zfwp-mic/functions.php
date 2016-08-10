@@ -466,6 +466,37 @@ if (is_home() || is_singular() || is_archive() ) {
 add_filter('the_content', 'add_suf_hatom_data');
 
 // GOOGLE TAG MANAGER CUSTOM DIMS.
+
+/**
+ * Author - Adam Doe
+ * Date   - 02-08-2016
+ * Index - 3
+ * Custom Dimension - Author
+ */
+    
+function custom_add_author_custom_dimension()
+{
+    if (is_singular('post'))
+    {
+        $this_post = get_queried_object();
+        $author_id = $this_post->post_author;
+        
+    
+    echo "<script>
+
+	window.dataLayer = window.dataLayer || [];
+	dataLayer.push({
+
+	'micAuthor' : '" . get_the_author_meta('display_name', $author_id) . "',
+	'event' : 'Author Pushed'
+
+	});
+	</script>";
+
+	}
+}
+add_action ('wp_head', 'custom_add_author_custom_dimension');
+
 /**
  * Author - Adam Doe
  * Date   - 02-08-2016
