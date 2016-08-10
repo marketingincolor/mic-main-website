@@ -36,6 +36,7 @@ $header_class = 'header-base';
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title><?php bloginfo('name'); ?> </title>
+	<meta name="google-site-verification" content="YtcOKQDwGTKB4KJyQLt97XAipBb9kaAA_e7tnMjlzso" />
 	<link rel="alternate" href="http://www.marketingincolor.com" hreflang="en-us" />
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -84,7 +85,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TLNW5X');</script>
 <!-- End Google Tag Manager -->
-
 	
 		<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
 	        <header id="masthead" class="site-header" role="banner">

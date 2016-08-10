@@ -73,7 +73,7 @@ var google_remarketing_only = true;
 
 							<div class="widget-details">
 								<a href="http://marketingincolor.com/sharpspring-login/">
-								<img src="<?php echo get_template_directory_uri(); ?>/img/SharpSpring Footer Icon.png">
+								<img src="<?php echo get_template_directory_uri(); ?>/img/SharpSpring Footer Icon.png" alt="SharpSpring Icon">
 								<?php do_action( 'co_sharpspring' ); ?></a>
 							</div>
 

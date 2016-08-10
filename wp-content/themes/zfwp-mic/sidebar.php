@@ -21,11 +21,11 @@ $the_parent_post = get_post($the_parent_id);
 		echo '<div class="columns show-for-medium-up">';
 		echo '<div class="otc-sidebar">';
 		echo '<h1 class="otc-sidebar orange">our true colors</h1>';
-		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Be A Partner.png">' . $partner;
-		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Cultivate Growth.png">' . $growth;
-		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Stay Creative.png">' . $creative;
-		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Give Back.png">' . $give;
-		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Prosper.png">' . $prosper;
+		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Be A Partner.png" alt="Be a partner">' . $partner;
+		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Cultivate Growth.png" alt="Cultivate Growth">' . $growth;
+		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Stay Creative.png" alt="Stay Creative">' . $creative;
+		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Give Back.png" alt="Give Back">' . $give;
+		echo '<img class="otc-sidebar-img" src="' . get_template_directory_uri() . '/img/Prosper.png" alt="Prosper">' . $prosper;
 		echo '</div>';
 		echo '</div>';
 	endif; ?>

@@ -11,7 +11,7 @@
     <ul>
         <li>
             <input type="radio" id="vert-1" name="vert-accordion" checked="checked" />
-            <label for="vert-1"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-purp.png"></label>
+            <label for="vert-1"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-purp.png" alt="Vertical purple crayon that's labled blog"></label>
             <div class="acc-content bgnd-purple">
 	            <div class="acc-content-shadow"></div>
 
@@ -32,7 +32,7 @@
         </li>
         <li>
             <input type="radio" id="vert-2" name="vert-accordion" />
-            <label for="vert-2"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-orng.png"></label>
+            <label for="vert-2"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-orng.png" alt="Vertical orange crayon that's labled team"></label>
             <div class="acc-content bgnd-orange">
                 <div class="acc-content-shadow"></div>
 
@@ -59,7 +59,7 @@
         </li>
         <li>
             <input type="radio" id="vert-3" name="vert-accordion" />
-            <label for="vert-3"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-gren.png"></label>
+            <label for="vert-3"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-gren.png" alt="Vertical green crayon that's labled our true colors"></label>
             <div class="acc-content bgnd-green">
                 <div class="acc-content-shadow"></div>
                 <?php
@@ -70,18 +70,18 @@
                 $give = get_post_meta( $display_id, 'otc_give_excerpt', true );
                 $prosper = get_post_meta( $display_id, 'otc_prosper_excerpt', true );
                 echo '<ul class="true-colors NOTsmall-block-grid-5">'.
-                    '<li><img src="' . get_template_directory_uri() . '/img/Be A Partner.png">' . $partner . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Cultivate Growth.png">' . $growth . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Stay Creative.png">' . $creative . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Give Back.png">' . $give . '</li>' .
-                    '<li><img src="' . get_template_directory_uri() . '/img/Prosper.png">' . $prosper . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Be A Partner.png" alt="Be a partner">' . $partner . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Cultivate Growth.png" alt="Cultivate Growth">' . $growth . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Stay Creative.png" alt="Stay Creative">' . $creative . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Give Back.png" alt="Give Back">' . $give . '</li>' .
+                    '<li><img src="' . get_template_directory_uri() . '/img/Prosper.png" alt="Prosper">' . $prosper . '</li>' .
                     '</ul>';
                 ?>
             </div>
         </li>
         <li>
             <input type="radio" id="vert-4" name="vert-accordion" />
-            <label for="vert-4"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-slvr.png"></label>
+            <label for="vert-4"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-expd-slvr.png" alt="Vertical gray crayon that's labled downtown"></label>
             <div class="acc-content bgnd-silver">
                 <div class="acc-content-shadow"></div>
 
