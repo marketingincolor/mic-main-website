@@ -440,7 +440,7 @@ function display_posts_change_order( $output, $atts, $image, $title, $date, $exc
 }
 add_filter( 'display_posts_shortcode_output', 'display_posts_change_order', 10, 9 );
 
-add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 10, 7 );
+add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 9, 7 );
 function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $excerpt, $inner_wrapper ) {
 	if ( $atts['include_excerpt'] ) {
 		$more = '...<div><a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( ' Read More', 'fwp-base' ) . '</a></div>';

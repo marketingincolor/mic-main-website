@@ -3,7 +3,7 @@
  * Plugin Name: Display Posts Shortcode
  * Plugin URI: http://www.billerickson.net/shortcode-to-display-posts/
  * Description: Display a listing of posts using the [display-posts] shortcode
- * Version: 2.6.1
+ * Version: 2.6.2
  * Author: Bill Erickson
  * Author URI: http://www.billerickson.net
  *
@@ -57,6 +57,7 @@ function be_display_posts_shortcode( $atts ) {
 		'category'            => '',
 		'category_display'    => '',
 		'category_label'      => 'Posted in: ',
+		'content_class'       => 'content',
 		'date_format'         => '(n/j/Y)',
 		'date'                => '',
 		'date_column'         => 'post_date',
@@ -68,6 +69,7 @@ function be_display_posts_shortcode( $atts ) {
 		'display_posts_off'   => false,
 		'excerpt_length'      => false,
 		'excerpt_more'        => false,
+		'excerpt_more_link'   => false,
 		'exclude_current'     => false,
 		'id'                  => false,
 		'ignore_sticky_posts' => false,
@@ -106,6 +108,7 @@ function be_display_posts_shortcode( $atts ) {
 	$category            = sanitize_text_field( $atts['category'] );
 	$category_display    = 'true' == $atts['category_display'] ? 'category' : sanitize_text_field( $atts['category_display'] );
 	$category_label      = sanitize_text_field( $atts['category_label'] );
+	$content_class       = array_map( 'sanitize_html_class', ( explode( ' ', $atts['content_class'] ) ) );
 	$date_format         = sanitize_text_field( $atts['date_format'] );
 	$date                = sanitize_text_field( $atts['date'] );
 	$date_column         = sanitize_text_field( $atts['date_column'] );
@@ -116,6 +119,7 @@ function be_display_posts_shortcode( $atts ) {
 	$date_query_compare  = sanitize_text_field( $atts['date_query_compare'] );
 	$excerpt_length      = intval( $atts['excerpt_length'] );
 	$excerpt_more        = sanitize_text_field( $atts['excerpt_more'] );
+	$excerpt_more_link   = filter_var( $atts['excerpt_more_link'], FILTER_VALIDATE_BOOLEAN );
 	$exclude_current     = filter_var( $atts['exclude_current'], FILTER_VALIDATE_BOOLEAN );
 	$id                  = $atts['id']; // Sanitized later as an array of integers
 	$ignore_sticky_posts = filter_var( $atts['ignore_sticky_posts'], FILTER_VALIDATE_BOOLEAN );
@@ -396,6 +400,8 @@ function be_display_posts_shortcode( $atts ) {
 		if ( $include_title ) {
 			/** This filter is documented in wp-includes/link-template.php */
 			$title = '<a class="title" href="' . apply_filters( 'the_permalink', get_permalink() ) . '">' . get_the_title() . '</a>';
+		} else {
+			$title = '';
 		}
 
 		if ( $image_size && has_post_thumbnail() )  
@@ -415,15 +421,30 @@ function be_display_posts_shortcode( $atts ) {
 			$author = apply_filters( 'display_posts_shortcode_author', ' <span class="author">by ' . get_the_author() . '</span>' );
 		
 		if ( $include_excerpt ) {
-			$excerpt_length = $excerpt_length ? $excerpt_length : apply_filters( 'excerpt_length', 55 );
-			$excerpt_more = $excerpt_more ? $excerpt_more : apply_filters( 'excerpt_more', ' ' . '[&hellip;]' );
-			$excerpt = ' <span class="excerpt-dash">-</span> <span class="excerpt">' . wp_trim_words( get_the_excerpt(), $excerpt_length, $excerpt_more ) . '</span>';
+			
+			// Custom build excerpt based on shortcode parameters
+			if( $excerpt_length || $excerpt_more || $excerpt_more_link ) {
+	
+				$length = $excerpt_length ? $excerpt_length : apply_filters( 'excerpt_length', 55 );
+				$more   = $excerpt_more ? $excerpt_more : apply_filters( 'excerpt_more', '' );
+				$more   = $excerpt_more_link ? ' <a href="' . get_permalink() . '">' . $more . '</a>' : ' ' . $more;
+				
+				$excerpt = has_excerpt() ? $post->post_excerpt . $more : wp_trim_words( $post->post_content, $length, $more );
+			
+			// Use default, can customize with WP filters
+			} else {
+				$excerpt = get_the_excerpt();
+			}
+			
+			$excerpt = ' <span class="excerpt-dash">-</span> <span class="excerpt">' . $excerpt . '</span>';			
+			
+			
 		}
 			
 		if( $include_content ) {
 			add_filter( 'shortcode_atts_display-posts', 'be_display_posts_off', 10, 3 );
 			/** This filter is documented in wp-includes/post-template.php */
-			$content = '<div class="content">' . apply_filters( 'the_content', get_the_content() ) . '</div>';
+			$content = '<div class="' . implode( ' ', $content_class ) . '">' . apply_filters( 'the_content', get_the_content() ) . '</div>';
 			remove_filter( 'shortcode_atts_display-posts', 'be_display_posts_off', 10, 3 );
 		}
 		
@@ -572,7 +593,7 @@ function be_sanitize_date_time( $date_time, $type = 'date', $accepts_string = fa
 		// Defaults to 2001 for years, January for months, and 1 for days.
 		$year = $month = $day = 1;
 
-		if ( count( $parts >= 3 ) ) {
+		if ( count( $parts ) >= 3 ) {
 			list( $year, $month, $day ) = $parts;
 
 			$year  = ( $year  >= 1 && $year  <= 9999 ) ? $year  : 1;

@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: shortcode, pages, posts, page, query, display, list
 Requires at least: 3.0
 Tested up to: 4.5.2
-Stable tag: 2.6.1
+Stable tag: 2.6.2
 
 Display a listing of posts using the [display-posts] shortcode
 
@@ -12,13 +12,14 @@ Display a listing of posts using the [display-posts] shortcode
 
 The *Display Posts Shortcode* was written to allow users to easily display listings of posts without knowing PHP or editing template files.
 
-Add the shortcode in a post or page, and use the arguments to query based on tag, category, post type, and many other possibilities (see the Arguments). I've also added some extra options to display something more than just the title: include_date, include_excerpt, and image_size.
+Add the shortcode in a post or page, and use the arguments to query based on tag, category, post type, and many other possibilities. You can also customize the output with parameters like: include_date, include_excerpt, and image_size.
 
-See the [WordPress Codex](http://codex.wordpress.org/Class_Reference/WP_Query) for information on using the arguments.
+* [Available Parameters](https://github.com/billerickson/display-posts-shortcode/blob/master/README.md#parameters)
+* [Customization with Filters](https://github.com/billerickson/display-posts-shortcode/wiki#customization-with-filters)
+* [Extension Plugins](https://github.com/billerickson/display-posts-shortcode/wiki#extension-plugins)
+* [Full Change Log](https://github.com/billerickson/display-posts-shortcode/blob/master/CHANGELOG.md)
+* [View on GitHub](https://github.com/billerickson/display-posts-shortcode)
 
-[Documentation](https://github.com/billerickson/display-posts-shortcode/wiki)
-
-**No support will be provided by the developer**
 
 == Installation ==
 
@@ -28,6 +29,12 @@ See the [WordPress Codex](http://codex.wordpress.org/Class_Reference/WP_Query) f
 
 
 == Changelog ==
+
+**Version 2.6.2**
+* More improvements to excerpts, see #110
+* Added content_class parameter
+* Fix date query bug, see #108
+* Fixed undefined variable notice if include_title="false"
 
 **Version 2.6.1**
 * Fix issue with manually specified excerpts

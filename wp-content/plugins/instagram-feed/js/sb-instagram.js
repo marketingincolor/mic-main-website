@@ -91,7 +91,7 @@ if(!sbi_js_exists){
                     if( data.data.bio.length ) $header += '<p class="sbi_bio" '+headerStyles+'>'+data.data.bio+'</p>';
                     $header += '</div>';
                     $header += '<div class="sbi_header_img">';
-                    $header += '<div class="sbi_header_img_hover"><i class="fa fa-instagram"></i></div>';
+                    $header += '<div class="sbi_header_img_hover"><i></i></div>';
                     $header += '<img src="'+data.data.profile_picture+'" alt="'+data.data.full_name+'" width="50" height="50">';
                     $header += '</div>';
                     $header += '</a>';
@@ -121,6 +121,11 @@ if(!sbi_js_exists){
                         //Remove all special chars in caption so doesn't cause issue in alt tag
                         //Always check to make sure it exists
                         if(image.caption != null) image.caption.text = image.caption.text.replace(/[^a-zA-Z ]/g, "");
+
+                        //Remove caching key from image sources to prevent duplicate content issue
+                        image.images.thumbnail.url = image.images.thumbnail.url.split("?ig_cache_key")[0];
+                        image.images.standard_resolution.url = image.images.standard_resolution.url.split("?ig_cache_key")[0];
+                        image.images.low_resolution.url = image.images.low_resolution.url.split("?ig_cache_key")[0];
 
                         return true;
                     },

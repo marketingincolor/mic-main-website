@@ -5,8 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c0ac689-fc13-4ec8-a3a3-ee60502713ee" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.htaccess" afterPath="$PROJECT_DIR$/.htaccess" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css" afterPath="$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/classes/class-ccf-custom-contact-forms.php" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/classes/class-ccf-custom-contact-forms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/custom-contact-forms.php" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/custom-contact-forms.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/readme.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/wp-api/extras.php" afterPath="$PROJECT_DIR$/wp-content/plugins/custom-contact-forms/wp-api/extras.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/display-posts-shortcode/display-posts-shortcode.php" afterPath="$PROJECT_DIR$/wp-content/plugins/display-posts-shortcode/display-posts-shortcode.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/plugins/display-posts-shortcode/readme.txt" afterPath="$PROJECT_DIR$/wp-content/plugins/display-posts-shortcode/readme.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php" afterPath="$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php" />
     </list>
     <ignored path="mic.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,31 +42,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="sidebar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/sidebar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="240">
+              <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="-80">
+              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -68,24 +75,10 @@
       <file leaf-file-name="content.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="224">
+              <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
               <folding>
-                <marker date="1464196968774" expanded="false" signature="9:185" placeholder=" The default template for displaying content ..." />
-                <marker date="1464196968774" expanded="true" signature="229:1491" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="291:431" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="324:423" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="468:707" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="500:689" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="562:686" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="759:1396" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="791:970" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="807:938" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="816:936" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="949:967" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="995:1382" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="1002:1380" placeholder="..." />
-                <marker date="1464196968774" expanded="true" signature="1448:1457" placeholder="..." />
+                <element signature="e#6#187#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,43 +94,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="left-sidebar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/left-sidebar.php">
+      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/page.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="144">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="content-page.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content-page.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
               <folding>
-                <element signature="e#6#362#0#PHP" expanded="true" />
+                <element signature="e#6#136#0#PHP" expanded="true" />
+                <marker date="1460663674733" expanded="true" signature="3257:3278" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="page.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/page.php">
+      <file leaf-file-name="left-sidebar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/left-sidebar.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="single-case-study.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/single-case-study.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="944">
-              <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="single-portfolio.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/single-portfolio.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="322">
+              <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -146,34 +130,22 @@
       <file leaf-file-name="functions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+            <state relative-caret-position="299">
+              <caret line="454" column="57" selection-start-line="454" selection-start-column="57" selection-end-line="454" selection-end-column="57" />
               <folding>
-                <marker date="1464286236125" expanded="false" signature="9:499" placeholder=" ZFWP Base Theme functions and definitions ..." />
-                <marker date="1464286236125" expanded="true" signature="545:1874" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="550:754" placeholder=" Note that this function is hooked into the after_setup_theme hook, which ..." />
-                <marker date="1464286236125" expanded="true" signature="782:1872" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1273:1351" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1280:1349" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1472:1564" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1488:1562" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1668:1763" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="1691:1761" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2157:4091" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2176:2478" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2182:2477" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2499:2807" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2505:2806" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2828:3135" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="2834:3134" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3156:3452" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3162:3451" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3473:3769" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3479:3768" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3790:4088" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="3796:4087" placeholder="..." />
-                <marker date="1464286236125" expanded="true" signature="4145:4416" placeholder="//..." />
-                <marker date="1464286236125" expanded="true" signature="4542:4906" placeholder="..." />
+                <marker date="1468337240135" expanded="true" signature="16675:16706" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wp-config.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/wp-config.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1380">
+              <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+              <folding>
+                <element signature="e#6#601#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -187,14 +159,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/includes/custom-settings.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/404.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/mic-plugin/mic-plugin.php" />
         <option value="$PROJECT_DIR$/wp-content/plugins/sitecore/sitecore.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/single-portfolio.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/archive-portfolio.php" />
-        <option value="$PROJECT_DIR$/wp-config.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/front-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/content-none.php" />
@@ -204,7 +174,6 @@
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/includes/team-list.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/includes/custom-wp-listwalker.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/includes/about-author.php" />
-        <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/includes/case-studies-list.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/single-case-study.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/content.php" />
@@ -224,8 +193,11 @@
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/content-page.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/footer.php" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/header.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/wp-config.php" />
+        <option value="$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php" />
+        <option value="$PROJECT_DIR$/.htaccess" />
       </list>
     </option>
   </component>
@@ -270,17 +242,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -297,6 +258,49 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="mic" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mic" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mic" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wp-content" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -382,6 +386,8 @@
       <workItem from="1462212638308" duration="581000" />
       <workItem from="1462214077747" duration="1900000" />
       <workItem from="1465395991177" duration="1313000" />
+      <workItem from="1465572951571" duration="93000" />
+      <workItem from="1468333385821" duration="4607000" />
     </task>
     <task id="LOCAL-00001" summary="revisions to staff pages">
       <created>1460669434961</created>
@@ -408,25 +414,25 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="23884000" />
+    <option name="totallyTimeSpent" value="28584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25945538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26701966" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277311" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277311" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32885906" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39932886" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -457,13 +463,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/twentyfifteen/content-search.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/twentyfifteen/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -663,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/author.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -733,22 +725,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content-page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="12" column="69" selection-start-line="12" selection-start-column="69" selection-end-line="12" selection-end-column="69" />
-          <folding>
-            <element signature="e#6#136#0#PHP" expanded="true" />
-            <marker date="1460663674733" expanded="true" signature="3257:3278" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,52 +740,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
-          <folding>
-            <marker date="1464196968774" expanded="false" signature="9:185" placeholder=" The default template for displaying content ..." />
-            <marker date="1464196968774" expanded="true" signature="229:1491" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="291:431" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="324:423" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="468:707" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="500:689" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="562:686" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="759:1396" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="791:970" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="807:938" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="816:936" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="949:967" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="995:1382" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="1002:1380" placeholder="..." />
-            <marker date="1464196968774" expanded="true" signature="1448:1457" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
           <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/left-sidebar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
-          <folding>
-            <element signature="e#6#362#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="30" column="14" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
           <folding />
         </state>
       </provider>
@@ -826,52 +764,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <caret line="25" column="14" selection-start-line="25" selection-start-column="14" selection-end-line="25" selection-end-column="14" />
           <folding>
-            <marker date="1464286236125" expanded="false" signature="9:499" placeholder=" ZFWP Base Theme functions and definitions ..." />
-            <marker date="1464286236125" expanded="true" signature="545:1874" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="550:754" placeholder=" Note that this function is hooked into the after_setup_theme hook, which ..." />
-            <marker date="1464286236125" expanded="true" signature="782:1872" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1273:1351" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1280:1349" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1472:1564" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1488:1562" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1668:1763" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="1691:1761" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2157:4091" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2176:2478" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2182:2477" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2499:2807" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2505:2806" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2828:3135" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="2834:3134" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3156:3452" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3162:3451" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3473:3769" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3479:3768" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3790:4088" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="3796:4087" placeholder="..." />
-            <marker date="1464286236125" expanded="true" signature="4145:4416" placeholder="//..." />
-            <marker date="1464286236125" expanded="true" signature="4542:4906" placeholder="..." />
+            <element signature="e#6#187#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/style.css">
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/left-sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="322">
+          <caret line="37" column="18" selection-start-line="37" selection-start-column="18" selection-end-line="37" selection-end-column="18" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/content-page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+          <folding>
+            <element signature="e#6#136#0#PHP" expanded="true" />
+            <marker date="1460663674733" expanded="true" signature="3257:3278" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="-80">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-content/themes/zfwp-mic/functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="454" column="57" selection-start-line="454" selection-start-column="57" selection-end-line="454" selection-end-column="57" />
+          <folding>
+            <marker date="1468337240135" expanded="true" signature="16675:16706" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/wp-config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1380">
+          <caret line="93" column="0" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#601#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
           <folding />
         </state>
       </provider>
