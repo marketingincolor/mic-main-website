@@ -440,7 +440,7 @@ function display_posts_change_order( $output, $atts, $image, $title, $date, $exc
 }
 add_filter( 'display_posts_shortcode_output', 'display_posts_change_order', 10, 9 );
 
-add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 10, 7 );
+add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 9, 7 );
 function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $excerpt, $inner_wrapper ) {
 	if ( $atts['include_excerpt'] ) {
 		$more = '...<div><a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( ' Read More', 'fwp-base' ) . '</a></div>';
@@ -464,3 +464,71 @@ if (is_home() || is_singular() || is_archive() ) {
     return $content;
     }
 add_filter('the_content', 'add_suf_hatom_data');
+
+// GOOGLE TAG MANAGER CUSTOM DIMS.
+/**
+ * Author - Adam Doe
+ * Date   - 02-08-2016
+ * Index - 3
+ * Custom Dimension - Post Length
+ */
+
+function custom_add_post_length_custom_dimension()
+{
+	if ( is_single() ) {
+		//global $post;
+		$word_count = str_word_count( strip_tags( $post->post_content ) );
+		if ( is_int( $word_count ) ) {
+			if ( $word_count < 500 ) {
+				$word_count_range = '< 500';
+			} elseif ( $word_count < 1000 ) {
+				$word_count_range = '500 - 999';
+			} elseif ( $word_count < 1500 ) {
+				$word_count_range = '1000 - 1499';
+			} elseif ( $word_count < 2000 ) {
+				$word_count_range = '1500 - 1999';
+			} else {
+				$word_count_range = '2000+';
+			}
+
+			echo "<script>
+
+				window.dataLayer = window.dataLayer || [];
+				dataLayer.push({
+
+					'micPostLength' : '" . $word_count_range . "',
+					'event' : 'Post Length Push'
+
+				});
+			</script>";
+		}
+	}
+}
+add_action ('wp_head','custom_add_post_length_custom_dimension');
+
+/**
+ * Author - Adam Doe
+ * Date   - 10-08-2016
+ * Index - 4
+ * Custom Dimension - Post Category
+ */
+
+function custom_dimension_post_category()
+{
+	// Post category
+	if ( is_single() ) {
+		global $post;
+		$post_categories = wp_get_object_terms( $post->ID, 'category', array( 'fields' => 'slugs' ) );
+		if ( ! empty( $post_categories ) && ! is_wp_error( $post_categories ) ) {
+			$post_categories = implode( ' ' , $post_categories );
+			echo "<script>
+
+			window.dataLayer.push({
+				'micPostCategory' : '" . $post_categories . "',
+				'event' : 'Category Push'
+		});
+		</script>";
+		}
+	}
+}
+add_action('wp_head', 'custom_dimension_post_category' );
