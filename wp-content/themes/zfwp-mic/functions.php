@@ -400,6 +400,7 @@ function be_display_post_class( $classes, $post, $listing, $atts ) {
 
 	$columns = array( '', '', 'one-half', 'one-third', 'one-fourth', 'one-fifth', 'one-sixth' );
 	$classes[] = $columns[$atts['columns']];
+
 	if( 0 == $listing->current_post || 0 == $listing->current_post % $atts['columns'] )
 		$classes[] = 'first';
 	return $classes;
@@ -440,15 +441,15 @@ function display_posts_change_order( $output, $atts, $image, $title, $date, $exc
 }
 add_filter( 'display_posts_shortcode_output', 'display_posts_change_order', 10, 9 );
 
-add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 9, 7 );
-function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $excerpt, $inner_wrapper ) {
+add_filter( 'display_posts_shortcode_output', 'display_posts_custom_readmore', 9, 9 );
+function display_posts_custom_readmore( $output, $atts, $image, $title, $date, $excerpt, $inner_wrapper, $content, $class ) {
 	if ( $atts['include_excerpt'] ) {
 		$more = '...<div><a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( ' Read More', 'fwp-base' ) . '</a></div>';
 		$new_excerpt = '<span class="excerpt"> ' . wp_trim_words(get_the_content_feed(), 25, $more ) . '</span>';
 	} else {
 		$new_excerpt = '';
 	}
-	$output = '<' . $inner_wrapper . ' class="listing-item">' . $image . $title . $date . $new_excerpt . '</' . $inner_wrapper . '>';
+	$output = '<' . $inner_wrapper . ' class="' . implode( ' ', $class ) . '">' . $image . $title . $date . $new_excerpt . '</' . $inner_wrapper . '>';
 	return $output;
 }
 
@@ -473,15 +474,15 @@ add_filter('the_content', 'add_suf_hatom_data');
  * Index - 3
  * Custom Dimension - Author
  */
-    
+
 function custom_add_author_custom_dimension()
 {
     if (is_singular('post'))
     {
         $this_post = get_queried_object();
         $author_id = $this_post->post_author;
-        
-    
+
+
     echo "<script>
 
 	window.dataLayer = window.dataLayer || [];

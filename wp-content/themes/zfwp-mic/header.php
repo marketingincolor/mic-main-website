@@ -58,7 +58,7 @@ $header_class = 'header-base';
 			});
 		})
 	</script>
-	<script type='text/javascript' src='http://smartzonessva.com/tag?171'></script>
+	<!--<script type='text/javascript' src='http://smartzonessva.com/tag?171'></script>-->
 	<script type="text/javascript">
 		var _ss = _ss || [];
 		_ss.push(['_setDomain', 'https://koi-UUHGVW.sharpspring.com/net']);
@@ -85,7 +85,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TLNW5X');</script>
 <!-- End Google Tag Manager -->
-	
+
 		<div class="<?php echo $header_class; ?> NOTorange-bg NOTcontain-to-grid NOTrow NOTlarge-collapse hide-for-small-down">
 	        <header id="masthead" class="site-header" role="banner">
 				<div class="row">

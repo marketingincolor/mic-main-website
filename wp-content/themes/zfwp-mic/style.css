@@ -88,7 +88,7 @@ iframe {border:none;}
 .hide-padding-left{padding-left:0;}
 
 /*Responsive Vimeo Videos*/
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } 
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 /**
@@ -441,6 +441,8 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .entry-content .sample-list-cats li:after { content:'|'; color: #898a8e } /*ad*/
 .entry-content .sample-list-cats li:last-child:after { content:''; }
 .entry-content .sample-list-cats li a[data-filter="work"] { display:none; }
+.entry-content .embed-wrap {position: relative; width: 100%; height: 0; padding-bottom: 56.25%;}
+.entry-content .embed-wrap iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
 
 .entry-thumbnail-about { float:left; margin-right:80px; margin-bottom:80px;}
 .entry-thumbnail img { border-radius:10px; width:100%; }
@@ -457,9 +459,9 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .blog-top .listing-item .excerpt .read-more:hover, .entry-content .read-more:hover { border-color:transparent; color:#fff !important; background-color:#898a8e; }
 
 .blog-main { display:inline-block; }
-/*.blog-main .one-half {  width: 50%; margin:1.5em 0em; }*/
+.blog-main .one-half {  width: 50%; margin:1.5em 0em; }
 .blog-main .one-half { width: 50%; }
-.blog-main .listing-item { position:relative; padding-top:1.5em;}
+.blog-main .listing-item { position:relative; padding-top:1.5em; display:inline-block; }
 .blog-main .listing-item img { border-radius:10px; width:100%; }
 .blog-main .listing-item .title { font-family: 'Lato', sans-serif; text-align:left; font-weight:bold; color:inherit; display:block; margin:5px 0; line-height:1.25em; }
 .blog-main .listing-item .excerpt { display:inline-block; }
