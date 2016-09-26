@@ -88,7 +88,7 @@ iframe {border:none;}
 .hide-padding-left{padding-left:0;}
 
 /*Responsive Vimeo Videos*/
-.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } 
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; }
 .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 /**
@@ -702,7 +702,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
  */
 #mob-circle-nav {display:inline-block;list-style:outside none none;margin:0;min-height:64px;max-width:360px;
 }
-#mob-circle-nav li { display:inline-block; margin:.5em; vertical-align:top; font-size:14px; font-weight:bold; letter-spacing:-0.5px;}
+#mob-circle-nav li { display:inline-block; margin:0em .5em; vertical-align:top; font-size:14px; font-weight:bold; letter-spacing:-0.5px;}
 .brgr-ico { color:#fff; font-size:1.5rem; position:absolute; right:5px; top:2px; cursor:pointer; overflow:hidden; width:24px;}
 .brgr-ico .fa-bars {}
 .lsplit { border-left: 1px solid; }
@@ -735,7 +735,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
     #mobile-nav .mbtn-blog,
     #mobile-nav .mbtn-downtown,
     #mobile-nav .mbtn-services,
-    #mobile-nav .mbtn-contact { height:72px; width:72px; display:inline-block; border:3px solid #fff; border-radius:5em; margin:0.5em; text-indent:unset; color:#fff; }
+    #mobile-nav .mbtn-contact { height:72px; width:72px; display:inline-block; border:3px solid #fff; border-radius:5em; margin:0.25em; text-indent:unset; color:#fff; }
     .mobile-nav a, .mobile-nav a:visited, .mobile-nav a:hover { color:#fff; }
     .stick-left {  position:fixed; left:-92%; height:calc(110vh); z-index:10; }
     .team .team-member { width:120px; }

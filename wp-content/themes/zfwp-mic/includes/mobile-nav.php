@@ -35,8 +35,7 @@
 			?>
 		</div>
 	</div>
-	<br /><br />
-	<div class="row">
+	<div class="row" style="margin-top:10px;">
 		<div class="small-6 columns rsplit">
 			<a href="tel:<?php do_action( 'co_phone' ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/img/mic-grfx-ftr-ico-ph.png"><strong><?php do_action( 'co_phone' ); ?></strong></a>
 		</div>
