@@ -19,7 +19,7 @@
 	foreach ( $show_posts as $post ) : setup_postdata( $post ); ?>
 		<div class="slide-panel">
 
-			<div class="slide-image"><?php the_post_thumbnail('list-thumb'); ?></div>
+			<div class="slide-image"><?php the_post_thumbnail('what-we-do-thumb'); ?></div>
 			<div class="slide-content">
 				<!--<div class="slide-title"><?php the_title(); ?></div>-->
 				<?php the_content(); ?>
