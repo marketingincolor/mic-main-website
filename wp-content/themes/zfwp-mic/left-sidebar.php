@@ -43,7 +43,7 @@ get_header(); ?>
                 <?php
                     if ( is_page('downtown') ) :
                         echo '<div class="downtown"><div>';
-                        echo '<a class="full-read-more" href="'.site_url('/tag/downtown').'">More Downtown Stories</a>';
+                        echo '<a class="full-read-more" href="'.site_url('/blog/downtown-stories/').'">More Downtown Stories</a>';
                         echo '</div></div>';
                     endif;
                 ?>
