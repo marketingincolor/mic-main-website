@@ -13,10 +13,10 @@
  * @since ZFWP Base 1.0
  */
 $custom_fields = get_post_custom();
-$show_left_sidebar = (is_page('services')) ? 'display:initial;' : '' ;
-$services_layout = (is_page('services')) ? 'small-10 small-offset-1 medium-4 medium-offset-1 columns' : '';
+$show_left_sidebar = (is_page('services') || is_page('downtown')) ? 'display:initial;' : '' ;
+$services_layout = (is_page('services') || is_page('downtown')) ? 'small-10 small-offset-1 medium-4 medium-offset-1 columns' : '';
 $about_layout = (is_page('about')) ? 'small-10 small-centered columns' : '';
-$services_samples = (is_page('services')) ?  'small-10 small-offset-1 medium-6 medium-offset-1 columns' : 'small-12 columns';
+$services_samples = (is_page('services') || is_page('downtown')) ?  'small-10 small-offset-1 medium-6 medium-offset-1 columns' : 'small-12 columns';
 get_header(); ?>
 
 <div id="lt-sidebar-separator" style="<?php echo $show_left_sidebar ?>" class="<?php echo $services_layout; echo $about_layout;?>">
@@ -40,16 +40,17 @@ get_header(); ?>
                     // End the loop.
                 endwhile;
                 ?>
+                <?php
+                    if ( is_page('downtown') ) :
+                        echo '<div class="downtown"><div>';
+                        echo '<a class="full-read-more" href="'.site_url('/tag/downtown').'">More Downtown Stories</a>';
+                        echo '</div></div>';
+                    endif;
+                ?>
             </div>
         </div>
     </section>
-    <?php
-    if ( is_page('downtown') ) :
-        echo '<div class="downtown"><div>';
-        echo '<a class="full-read-more" href="'.site_url('/tag/downtown').'">More Downtown Stories</a>';
-        echo '</div></div>';
-    endif;
-    ?>
+
 </div>
 
 
