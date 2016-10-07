@@ -27,7 +27,7 @@ if ( ! function_exists( 'theme_setup' ) ) :
 		set_post_thumbnail_size( 600, 260 );
 		add_image_size( 'story-thumb', 600, 260, true );
 		add_image_size( 'list-thumb', 250, 250, true );
-		add_image_size( 'inner-thumb', 112, 112, true );
+		add_image_size( 'what-we-do-thumb', 390, 250, true );
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(

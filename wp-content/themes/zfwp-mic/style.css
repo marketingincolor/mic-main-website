@@ -578,10 +578,10 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 .frontpage-what-slider .slide-panel .slide-title { font-weight:bold; font-size:1em; line-height:1.125em; position:inherit; display:inline-block; margin-bottom: 0.5em; }
 .frontpage-what-slider .slide-panel .slide-image { display:inline-block; float:left; padding-right:20px; margin-right:20px; }
 .frontpage-what-slider .slide-panel .slide-image img { border-radius: 10px; }
-.frontpage-what-slider .slide-panel .slide-content { margin-top:10px; display:inline-block; min-height:100px; position:inherit; width:65%; }
-.frontpage-what-slider .slide-panel .slide-content .slide-content-section { width:49%; float:left; line-height:1.25em; }
+.frontpage-what-slider .slide-panel .slide-content { margin-top:10px; display:inline-block; min-height:100px; position:inherit; width:50%; }
+.frontpage-what-slider .slide-panel .slide-content .slide-content-section { width:100%; float:left; line-height:1.25em; }
 .frontpage-what-slider .slide-panel .slide-content .slide-content-section p { font-size:0.875em; line-height:1.25em; }
-.frontpage-what-slider .slide-panel .slide-content .slide-button-section { border-left:1px solid; width:49%; position:absolute; top:0; right:0; }
+.frontpage-what-slider .slide-panel .slide-content .slide-button-section { border-left:1px solid; width:49%; position:absolute; top:0; right:0; display:none; }
 .frontpage-what-slider .slide-panel .slide-content .slide-button-section img { border-radius:50%; width:45%; float:right; padding:0.5em; }
 
 
@@ -615,8 +615,9 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
  * 6.0 Sidebar
  * -----------------------------------------------------------------------------
  */
+
 #rt-sidebar-separator { margin:20px 0px; }
-#lt-sidebar-separator { margin:20px 0px; }
+#lt-sidebar-separator { /*margin:20px 0px;*/ display:none; }
 #services-list { list-style:none outside; margin:0; padding-bottom:2em; }
 #services-list li { display:block; padding-top:10px; }
 #services-list #services-list-img, #services-list #services-list-title { height:37px; }
