@@ -535,6 +535,7 @@ div.downtown div .full-read-more:hover { border-color:transparent; color:#fff !i
 #front-page-what .slick-slider {
     padding-left:45px !important;
     padding-right:45px !important;
+    overflow-y:hidden;
 }
 #front-page-what .slick-prev::before { content: "" !important;}
 #front-page-what .slick-prev {

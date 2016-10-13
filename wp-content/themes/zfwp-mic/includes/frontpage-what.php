@@ -37,6 +37,7 @@
 			autoplaySpeed: 8000,
 			speed:600,
 		});
+		$(".frontpage-what-slider").css("display", "initial !important");
 	});
 </script>
 

@@ -51,7 +51,7 @@ get_header(); ?>
         </div>
         
         <div class="show-for-medium-up blog-main read-more blog-main">
-		<?php echo do_shortcode('[display-posts order="DESC" category="blog" offset="1" posts_per_page="4" wrapper="div" wrapper_class="blog-main" include_excerpt="true" image_size="fullsize" columns="2"]'); ?>
+		<?php echo do_shortcode('[display-posts order="DESC" category="blog" offset="1" posts_per_page="4" wrapper="div" wrapper_class="blog-main" include_excerpt="true" image_size="fullsize" ]'); ?>
         </div>
         <!--/Hide Main Elements From Small Screen-->
 		<div class="entry-content">
