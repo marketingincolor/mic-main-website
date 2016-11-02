@@ -104,7 +104,7 @@ endif;
 			echo '<br clear="both"><br>';
 			if ( $user_video != '' ) {
 				echo '<h4 class="orange">'.$user_firstname.'\'s Favorite Video</h4>';
-				echo '<div class="embed-wrap"><iframe frameborder="0" width="100%" allowfullscreen="" src="' . $user_video . '"></iframe></div>';
+				echo '<div class="embed-container"><iframe frameborder="0" width="100%" allowfullscreen="" src="' . $user_video . '"></iframe></div>';
 			};
 
 			//echo 'do post display shortcode for author with user_id='.$link_user;
