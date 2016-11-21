@@ -23,7 +23,7 @@ get_header(); ?>
     <?php get_sidebar(); ?>
 </div>
 
-<div id="main-content" class="small-10 small-offset-1">
+<div id="main-content" class="small-10 small-offset-1 columns">
     <section class="scroll-container" role="main">
         <div class="row collapse medium-uncollapse">
             <div class="<?php echo $services_samples; ?>">
