@@ -16,16 +16,17 @@ $custom_fields = get_post_custom();
 $show_left_sidebar = (is_page('services') || is_page('downtown')) ? 'display:initial;' : '' ;
 $services_layout = (is_page('services') || is_page('downtown')) ? 'small-10 small-offset-1 medium-4 medium-offset-1 columns' : '';
 $about_layout = (is_page('about')) ? 'small-10 small-centered columns' : '';
-$services_samples = (is_page('services') || is_page('downtown')) ?  'small-10 small-offset-1 medium-6 medium-offset-1 columns' : 'small-12 columns';
+$services_samples = (is_page('services') || is_page('downtown')) ?  'small-10 small-offset-1 medium-6 medium-offset-0 columns' : 'small-12 columns';
+$team_page = ( is_page('about') ? 'small-10 small-offset-1 columns': ' ' );
 get_header(); ?>
 
 <div id="lt-sidebar-separator" style="<?php echo $show_left_sidebar ?>" class="<?php echo $services_layout; echo $about_layout;?>">
     <?php get_sidebar(); ?>
 </div>
 
-<div id="main-content" class="small-10 small-offset-1 columns">
+<div id="main-content" class="<?php echo $team_page; ?>">
     <section class="scroll-container" role="main">
-        <div class="row collapse medium-uncollapse">
+        <div class=""><!--row collapse medium-uncollapse-->
             <div class="<?php echo $services_samples; ?>">
                 <?php
                 // Start the loop.
