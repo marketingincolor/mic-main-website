@@ -384,7 +384,7 @@ article h2 { font-family: 'Lato', sans-serif; margin-bottom:.5em; color:inherit;
 .entry-content.about p { clear:unset; }
 .entry-content .display-posts-listing {}
 .entry-content .display-posts-listing-examples {}
-.entry-content .display-posts-listing-examples .listing-item { display:inline-block; margin: 1.5em 0; }
+.entry-content .display-posts-listing-examples .listing-item { display:inline-block; margin: 1.5em 0; width: 100%;}
 .entry-content .display-posts-listing-examples .listing-item img { border-radius:10px; }
 .entry-content .display-posts-listing-examples .listing-item .title { font-size: 1.25rem; font-family: 'Lato', sans-serif; font-weight:bold; color:inherit; display:block; margin:5px 0;}
 .entry-content .display-posts-listing-examples .listing-item .image { display:inline-block; float:left; margin-right:20px; }
