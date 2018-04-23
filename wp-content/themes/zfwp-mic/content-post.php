@@ -91,7 +91,9 @@ $cs_sample_gallery = get_post_meta( $post->ID, 'work_sample_gallery', true );
 
 		<?php the_content(); ?>
 
-		<?php if ($post->post_type == 'case-study') : ?>
+		<?php if (($post->post_type == 'case-study') && (empty($cs_sample_gallery))) : ?>
+		<div class="entry-case-study-right small-12 medium-12 columns">
+		<?php else : ?>
 		<div class="entry-case-study-right small-12 medium-6 columns">
 			<?php if ( !empty($cs_sample_gallery) ) : ?>
 			<div class="entry-samples">
