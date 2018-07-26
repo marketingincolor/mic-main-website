@@ -15,3 +15,4 @@ wp-content/plugins/
 /readme.html
 /license.txt
 node_modules
+package-lock.json
